@@ -12,19 +12,6 @@
 		"AutoLayer.png"
 	],
 	"entities": {
-		"Player_Spawn": [
-			{
-				"id": "Player_Spawn",
-				"iid": "7027dc90-b0a0-11ee-8b58-c7e66e25aeec",
-				"layer": "Entities",
-				"x": 128,
-				"y": 320,
-				"width": 32,
-				"height": 32,
-				"color": 0,
-				"customFields" : {}
-			}
-		],
 		"Exit": [
 			{
 				"id": "Exit",
@@ -39,6 +26,32 @@
 					"hearts_required": 3,
 					"next_spawn": null
 				}
+			}
+		],
+		"Box": [
+			{
+				"id": "Box",
+				"iid": "450a48f0-b0a0-11ee-8b58-3f02d04aa158",
+				"layer": "Entities",
+				"x": 224,
+				"y": 320,
+				"width": 32,
+				"height": 32,
+				"color": 6776679,
+				"customFields" : {}
+			}
+		],
+		"Player_Spawn": [
+			{
+				"id": "Player_Spawn",
+				"iid": "7027dc90-b0a0-11ee-8b58-c7e66e25aeec",
+				"layer": "Entities",
+				"x": 128,
+				"y": 320,
+				"width": 32,
+				"height": 32,
+				"color": 0,
+				"customFields" : {}
 			}
 		]
 	}

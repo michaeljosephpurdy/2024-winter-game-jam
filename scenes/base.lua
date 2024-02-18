@@ -1,6 +1,7 @@
 BaseScene = class("BaseScene")
 
 function BaseScene:initialize()
+	self.clear_color = love.math.colorFromBytes(26, 28, 44)
 	-- pass
 end
 
@@ -10,5 +11,5 @@ end
 
 function BaseScene:draw()
 	-- pass
-	love.graphics.clear()
+	love.graphics.clear(self.clear_color)
 end
