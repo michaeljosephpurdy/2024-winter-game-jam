@@ -5,6 +5,8 @@ require("systems.screen-transition")
 require("systems.camera")
 require("mixins.reacts")
 require("mixins.collides")
+require("mixins.killable")
+require("mixins.rewindable")
 require("plugins.pubsub")
 require("plugins.super-simple-ldtk")
 require("entities.base")
@@ -14,6 +16,8 @@ require("entities.player")
 require("entities.image")
 require("entities.box")
 require("entities.exit")
+require("entities.animal")
+require("entities.altar")
 
 GAME_WIDTH = 640
 GAME_HEIGHT = 640

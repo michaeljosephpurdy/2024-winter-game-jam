@@ -31,6 +31,9 @@ function BaseEntity:move(dx, dy)
 		if self == other then
 			return
 		end
+		if other.is_passable then
+			return
+		end
 		if not self:collides_on_grid(other) then
 			return
 		end
@@ -38,6 +41,10 @@ function BaseEntity:move(dx, dy)
 		self.x = self.old_x
 		self.y = self.old_y
 		if other.is_solid then
+			moved = false
+			return
+		end
+		if other.is_dead then
 			moved = false
 			return
 		end

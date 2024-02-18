@@ -12,35 +12,6 @@
 		"AutoLayer.png"
 	],
 	"entities": {
-		"Exit": [
-			{
-				"id": "Exit",
-				"iid": "a1696b70-b0a0-11ee-8b58-cf2ae240a3b7",
-				"layer": "Entities",
-				"x": 512,
-				"y": 320,
-				"width": 32,
-				"height": 32,
-				"color": 2434341,
-				"customFields": {
-					"hearts_required": 3,
-					"next_spawn": null
-				}
-			}
-		],
-		"Box": [
-			{
-				"id": "Box",
-				"iid": "450a48f0-b0a0-11ee-8b58-3f02d04aa158",
-				"layer": "Entities",
-				"x": 224,
-				"y": 320,
-				"width": 32,
-				"height": 32,
-				"color": 6776679,
-				"customFields" : {}
-			}
-		],
 		"Player_Spawn": [
 			{
 				"id": "Player_Spawn",
@@ -51,6 +22,32 @@
 				"width": 32,
 				"height": 32,
 				"color": 0,
+				"customFields" : {}
+			}
+		],
+		"Animal": [
+			{
+				"id": "Animal",
+				"iid": "90f667a0-b0a0-11ee-8b58-9d532b0c7cf8",
+				"layer": "Entities",
+				"x": 192,
+				"y": 320,
+				"width": 32,
+				"height": 32,
+				"color": 16777215,
+				"customFields" : {}
+			}
+		],
+		"Altar": [
+			{
+				"id": "Altar",
+				"iid": "924d6c20-b0a0-11ee-8b58-9fbd306054ec",
+				"layer": "Entities",
+				"x": 256,
+				"y": 320,
+				"width": 32,
+				"height": 32,
+				"color": 18761,
 				"customFields" : {}
 			}
 		]
