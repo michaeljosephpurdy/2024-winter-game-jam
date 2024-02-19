@@ -1,17 +1,16 @@
 Exit = class("Exit", BaseEntity)
-local image = love.graphics.newImage("assets/exit.png")
+--local image = love.graphics.newImage("assets/exit.png")
 
 function Exit:initialize(props)
 	BaseEntity.initialize(self, props)
 	self.is_solid = true
-	self.image = image
 end
 
 function Exit:trigger(other)
 	--pass
-	print("exit riggered")
+	--print("exit riggered")
 end
 
 function Exit:draw()
-	love.graphics.draw(self.image, self.x, self.y)
+	--love.graphics.draw(self.image, self.x, self.y)
 end

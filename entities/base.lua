@@ -1,11 +1,11 @@
 BaseEntity = class("BaseEntity")
 
 function BaseEntity:initialize(props)
-	self.x = props.x
-	self.y = props.y
+	for k, v in pairs(props) do
+		self[k] = v
+	end
 	self.w = 32
 	self.h = 32
-	self.parent = props.parent
 end
 
 function BaseEntity:update(dt)
@@ -27,11 +27,15 @@ function BaseEntity:move(dx, dy)
 	-- 3. attempt to move other entity
 	--    if they can move, then you can move and rollforward movement
 	local moved = true
+	self.is_on_altar = false
 	self.parent:on_each_entity(function(other)
 		if self == other then
 			return
 		end
 		if other.is_passable then
+			if other.is_altar then
+				self.is_on_altar = true
+			end
 			return
 		end
 		if not self:collides_on_grid(other) then
@@ -44,7 +48,7 @@ function BaseEntity:move(dx, dy)
 			moved = false
 			return
 		end
-		if other.is_dead then
+		if other.is_dead and other:is_dead() then
 			moved = false
 			return
 		end

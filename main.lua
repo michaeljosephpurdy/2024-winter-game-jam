@@ -1,6 +1,9 @@
-class = require("plugins/middleclass")
+love.graphics.setDefaultFilter("nearest", "nearest")
+require("plugins.memory-printer")
+class = require("plugins.middleclass")
 push = require("plugins.push")
 ldtk = require("plugins.super-simple-ldtk")
+require("systems.game-state")
 require("systems.screen-transition")
 require("systems.camera")
 require("mixins.reacts")
@@ -12,34 +15,42 @@ require("plugins.super-simple-ldtk")
 require("entities.base")
 require("scenes.base")
 require("scenes.puzzle")
+require("entities.collider")
+require("entities.cross")
 require("entities.player")
 require("entities.image")
 require("entities.box")
 require("entities.exit")
 require("entities.animal")
 require("entities.altar")
+require("entities.fence")
+require("entities.text")
 
-GAME_WIDTH = 640
-GAME_HEIGHT = 640
+GAME_WIDTH = 320
+GAME_HEIGHT = 320
 
 function love.load()
-	love.graphics.setDefaultFilter("nearest", "nearest")
 	local windowWidth, windowHeight = love.window.getDesktopDimensions()
-	push:setupScreen(GAME_WIDTH, GAME_HEIGHT, windowWidth, windowHeight, { fullscreen = false, resizable = true })
-	push:setBorderColor(love.math.colorFromBytes(0, 0, 0))
+	push:setupScreen(GAME_WIDTH, GAME_HEIGHT, windowWidth, windowHeight, {
+		fullscreen = false,
+		resizable = true,
+	})
+	push:resize(windowWidth, windowHeight)
 	ldtk:init("world")
+	push:setBorderColor(love.math.colorFromBytes(115, 239, 247))
+	GAME_STATE = GameState:new()
 	ScreneTransitionSingleton = ScreenTransition:new()
-	current_scene = PuzzleScene:new("71c32692-b0a0-11ee-8b58-9544504138ba")
+	GAME_STATE:transition(PuzzleScene:new("Overworld"))
 end
 
-function love.update()
-	current_scene:update()
-	old_scene = current_scene
+function love.update(dt)
+	GAME_STATE.current_scene:update(dt)
 end
 
 function love.draw()
 	push:start()
-	current_scene:draw()
+	GAME_STATE.current_scene:draw()
+	GAME_STATE:draw()
 	push:finish()
 end
 
@@ -54,3 +65,5 @@ end
 function love.resize(w, h)
 	push:resize(w, h)
 end
+
+function transition(new_scene) end

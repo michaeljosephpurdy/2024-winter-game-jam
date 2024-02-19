@@ -1,7 +1,7 @@
 BaseScene = class("BaseScene")
 
 function BaseScene:initialize()
-	love.graphics.setBackgroundColor(26, 28, 44)
+	love.graphics.setBackgroundColor(115, 239, 247)
 	self.entities = {}
 end
 

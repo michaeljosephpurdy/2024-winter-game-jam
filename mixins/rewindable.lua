@@ -23,4 +23,5 @@ function Rewindable:rewind(turn)
 	for k, v in pairs(state) do
 		self[k] = v
 	end
+	self.turns[turn] = nil
 end

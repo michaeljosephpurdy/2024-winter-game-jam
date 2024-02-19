@@ -1,0 +1,34 @@
+{
+	"identifier": "Level_1",
+	"uniqueIdentifer": "bf688830-b0a0-11ee-8b58-a33c7fc16db8",
+	"x": 640,
+	"y": 0,
+	"width": 256,
+	"height": 256,
+	"bgColor": "#1A1C2C",
+	"neighbourLevels": [
+		{
+			"levelIid": "71c32692-b0a0-11ee-8b58-9544504138ba",
+			"dir": "w"
+		}
+	],
+	"customFields" : {},
+	"layers": [
+		"AutoLayer.png"
+	],
+	"entities": {
+		"Player_Spawn": [
+			{
+				"id": "Player_Spawn",
+				"iid": "37474290-b0a0-11ee-8b58-ed0296520e06",
+				"layer": "Entities",
+				"x": 64,
+				"y": 96,
+				"width": 32,
+				"height": 32,
+				"color": 0,
+				"customFields" : {}
+			}
+		]
+	}
+}

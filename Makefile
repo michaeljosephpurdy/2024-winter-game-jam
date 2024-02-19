@@ -9,7 +9,11 @@ images:
 	aseprite -b assets/target.aseprite --save-as assets/target.png
 	aseprite -b --layer "alive" assets/cow.aseprite --save-as assets/cow-alive.png
 	aseprite -b --layer "dead" assets/cow.aseprite --save-as assets/cow-dead.png
-
+	aseprite -b --layer "inactive" assets/enter.aseprite --save-as assets/enter-inactive.png
+	aseprite -b --layer "active" assets/enter.aseprite --save-as assets/enter-active.png
+	aseprite -b --layer "completed" assets/enter.aseprite --save-as assets/enter-completed.png
+	aseprite -b --layer "open" assets/fence.aseprite --save-as assets/fence-open.png
+	aseprite -b --layer "closed" assets/fence.aseprite --save-as assets/fence-closed.png
 
 
 serve:

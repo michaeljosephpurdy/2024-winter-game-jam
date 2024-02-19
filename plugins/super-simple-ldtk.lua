@@ -23,13 +23,14 @@ function SuperSimpleLdtk:init(world)
 	self.path = string.format("data/%s/simplified", world)
 	self.level_data = {}
 	local level_files = love.filesystem.getDirectoryItems(self.path)
-	print(level_files)
 	for _, level_name in pairs(level_files) do
 		local level_path = string.format("%s/%s/", self.path, level_name)
 		local level_data_file = string.format("%s/%s", level_path, FILE_NAMES.DATA)
 		local data = load_and_parse_json(level_data_file)
 		data.path = level_path
 		self.level_data[data.uniqueIdentifer] = data
+		self.level_data[data.identifier] = data
+		print("parsed " .. level_name)
 	end
 	PubSub.publish("ldtk.done")
 end
@@ -42,10 +43,6 @@ end
 
 function SuperSimpleLdtk:load(level_id, on_image, on_tile, on_entity)
 	print("level_id" .. level_id)
-	for k, v in pairs(self.level_data) do
-		print(k)
-		print(v)
-	end
 	local data = self.level_data[level_id]
 	local level_path = data.path
 	local level = {
@@ -55,11 +52,12 @@ function SuperSimpleLdtk:load(level_id, on_image, on_tile, on_entity)
 		yy = data.y + data.height,
 		width = data.width,
 		height = data.height,
-		tile_size = 16,
+		tile_size = 32,
 		id = data.uniqueIdentifer,
 		level_id = level_id,
 		neighbors = {},
 	}
+	print(level_id .. " x: " .. level.x .. " y: " .. level.y)
 	for _, neighbor in pairs(data.neighbourLevels) do
 		table.insert(level.neighbors, neighbor.levelIid)
 	end
@@ -67,12 +65,18 @@ function SuperSimpleLdtk:load(level_id, on_image, on_tile, on_entity)
 	for _, types in pairs(data.entities) do
 		for _, entity in pairs(types) do
 			entity.level_id = level_id
+			local old_x, old_y = entity.x, entity.y
 			entity.x = data.x + entity.x
 			entity.y = data.y + entity.y
+			for k, v in pairs(entity.customFields) do
+				entity[k] = v
+			end
 			PubSub.publish("ldtk.entity.create", entity)
 			if on_entity then
 				on_entity(entity)
 			end
+			entity.x = old_x
+			entity.y = old_y
 		end
 	end
 	for _, layer in pairs(data.layers) do
@@ -90,7 +94,6 @@ function SuperSimpleLdtk:load(level_id, on_image, on_tile, on_entity)
 			end
 		end
 	end
-
 	local collider_grid_file = string.format("%s/%s", level_path, FILE_NAMES.SOLID_COLLIDERS)
 	local collider_grid = love.filesystem.read("string", collider_grid_file)
 	local y = 0
@@ -98,10 +101,10 @@ function SuperSimpleLdtk:load(level_id, on_image, on_tile, on_entity)
 		local x = 0
 		for cell in rows:gmatch("[^,]+") do
 			local tile = {
-				x = data.x + (x * 16),
-				y = data.y + (y * 16),
-				width = 16,
-				height = 16,
+				x = data.x + (x * 32),
+				y = data.y + (y * 32),
+				width = 32,
+				height = 32,
 				value = cell,
 				level_id = level_id,
 			}
@@ -113,6 +116,7 @@ function SuperSimpleLdtk:load(level_id, on_image, on_tile, on_entity)
 		end
 		y = y + 1
 	end
+	return level
 end
 
 return SuperSimpleLdtk

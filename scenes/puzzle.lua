@@ -1,13 +1,23 @@
 PuzzleScene = class("PuzzleScene", BaseScene)
 
-function PuzzleScene:initialize(level_id)
+function PuzzleScene:initialize(level_id, from)
 	BaseScene.initialize(self)
+	self.is_overworld = level_id == "Overworld"
+	self.camera = Camera:new()
+	self.tiles = {}
+	self.upper_layer = {}
+	self.altars = {}
+	self.crosses = {}
 	self.current_turn = 1
+	self.sacrifices = 0
 	function on_image(payload)
 		self.bg = Image:new(payload)
 	end
 	function on_tile(payload)
-		--pass
+		if payload.value == "1" then
+			return
+		end
+		table.insert(self.entities, Collider:new({ x = payload.x, y = payload.y }))
 	end
 	function on_entity(payload)
 		payload.parent = self
@@ -17,14 +27,56 @@ function PuzzleScene:initialize(level_id)
 		elseif payload.id == "Animal" then
 			table.insert(self.entities, Animal:new(payload))
 		elseif payload.id == "Altar" then
-			table.insert(self.entities, Altar:new(payload))
+			local altar = Altar:new(payload)
+			table.insert(self.altars, altar)
 		elseif payload.id == "Box" then
 			table.insert(self.entities, Box:new(payload))
+		elseif payload.id == "Cross" then
+			local cross = Cross:new(payload)
+			table.insert(self.entities, cross)
+			print("cross " .. cross.to_level)
+			print("cross x: " .. cross.x .. " y: " .. cross.y)
+			if from and from == cross.to_level then
+				print("found player position " .. cross.x .. ", " .. cross.y)
+				self.player_start = { x = cross.x, y = cross.y }
+			end
+			table.insert(self.crosses, cross)
+		elseif payload.id == "Text" then
+			table.insert(self.upper_layer, Text:new(payload))
+		elseif payload.id == "Fence" then
+			local fence = Fence:new(payload)
+			table.insert(self.entities, fence)
+			table.insert(self.upper_layer, fence)
 		elseif payload.id == "Exit" then
-			table.insert(self.entities, Exit:new(payload))
+			self.exit = Exit:new(payload)
 		end
 	end
 	ldtk:load(level_id, on_image, on_tile, on_entity)
+	PubSub.subscribe("keyrelease", function(key)
+		if self.is_overworld and (key == "x" or key == "l") then
+			for _, cross in pairs(self.crosses) do
+				if cross.x == self.player.x and cross.y == self.player.y and cross:can_enter() then
+					PubSub:purge()
+					GAME_STATE:transition(PuzzleScene:new(cross.to_level))
+					return
+				end
+			end
+		end
+		if not self.is_overworld and self.over and (key == "x" or key == "l") then
+			GAME_STATE:save_progress(level_id, {
+				offerings = self.sacrifices,
+			})
+			PubSub:purge()
+			GAME_STATE:transition(PuzzleScene:new("Overworld", level_id))
+			return
+		end
+	end)
+	if self.player_start and self.player then
+		self.player.x = self.player_start.x
+		self.player.y = self.player_start.y
+	end
+	print("player x: " .. self.player.x .. " y: " .. self.player.y)
+	print("#entities: " .. #self.entities)
 end
 
 function PuzzleScene:on_each_entity(fn)
@@ -34,6 +86,9 @@ function PuzzleScene:on_each_entity(fn)
 end
 
 function PuzzleScene:rewind()
+	if self.is_overworld then
+		return
+	end
 	self.current_turn = self.current_turn - 1
 	if self.current_turn < 1 then
 		self.current_turn = 1
@@ -46,6 +101,9 @@ function PuzzleScene:rewind()
 end
 
 function PuzzleScene:tick()
+	if self.is_overworld then
+		return
+	end
 	-- save the current turn
 	-- then advance
 	self:on_each_entity(function(entity)
@@ -56,20 +114,42 @@ function PuzzleScene:tick()
 	self.current_turn = self.current_turn + 1
 end
 
-function PuzzleScene:update()
-	-- pass
+function PuzzleScene:update(dt)
 	BaseScene.update(self)
+	self.sacrifices = 0
 	for _, entity in pairs(self.entities) do
 		entity:update()
 	end
+	for _, altar in pairs(self.altars) do
+		for _, entity in pairs(self.entities) do
+			if altar.x == entity.x and altar.y == entity.y then
+				if entity.is_dead and entity:is_dead() then
+					self.sacrifices = self.sacrifices + 1
+				end
+			end
+		end
+	end
+	self.over = self.sacrifices == #self.altars
+	self.camera:update(self.player, dt)
 end
 
 function PuzzleScene:draw()
 	BaseScene.draw(self)
+	self.camera:apply()
 	self.bg:draw()
+	for _, altar in pairs(self.altars) do
+		altar:draw()
+	end
 	for _, entity in pairs(self.entities) do
 		entity:draw()
 	end
+	for _, entity in pairs(self.upper_layer) do
+		entity:draw()
+	end
 	self.player:draw()
-	love.graphics.print(self.current_turn, 40, 40)
+	love.graphics.print("turn: " .. self.current_turn, 40, 40)
+	love.graphics.print("sacrifices: " .. self.sacrifices .. "/" .. #self.altars, 40, 60)
+	if self.over then
+		love.graphics.print("you won", 40, 80)
+	end
 end

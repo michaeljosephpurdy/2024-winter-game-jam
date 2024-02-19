@@ -1,0 +1,111 @@
+{
+	"identifier": "Overworld",
+	"uniqueIdentifer": "aad76ce0-b0a0-11ee-8b58-59c5581caf72",
+	"x": 0,
+	"y": 640,
+	"width": 896,
+	"height": 1312,
+	"bgColor": "#1A1C2C",
+	"neighbourLevels": [
+		{
+			"levelIid": "71c32692-b0a0-11ee-8b58-9544504138ba",
+			"dir": "n"
+		},
+		{
+			"levelIid": "ba666d50-b0a0-11ee-8b58-39a22f9726ea",
+			"dir": "n"
+		}
+	],
+	"customFields" : {},
+	"layers": [
+		"AutoLayer.png"
+	],
+	"entities": {
+		"Player_Spawn": [
+			{
+				"id": "Player_Spawn",
+				"iid": "50548570-b0a0-11ee-8b58-c9fd6971e04e",
+				"layer": "Entities",
+				"x": 64,
+				"y": 1248,
+				"width": 32,
+				"height": 32,
+				"color": 0,
+				"customFields" : {}
+			}
+		],
+		"Cross": [
+			{
+				"id": "Cross",
+				"iid": "d28ddcb0-b0a0-11ee-8b58-8de5d1881499",
+				"layer": "Entities",
+				"x": 64,
+				"y": 96,
+				"width": 32,
+				"height": 32,
+				"color": 39321,
+				"customFields": {
+					"to_level": "Level_0",
+					"active": 0
+				}
+			},
+			{
+				"id": "Cross",
+				"iid": "e1a710e0-b0a0-11ee-8b58-7d84a26d27a9",
+				"layer": "Entities",
+				"x": 288,
+				"y": 96,
+				"width": 32,
+				"height": 32,
+				"color": 39321,
+				"customFields": {
+					"to_level": "Level_1",
+					"active": 1
+				}
+			}
+		],
+		"Text": [
+			{
+				"id": "Text",
+				"iid": "c41866f0-b0a0-11ee-8b58-5dc34f1c22ab",
+				"layer": "Entities",
+				"x": 192,
+				"y": 1216,
+				"width": 32,
+				"height": 32,
+				"color": 2281250,
+				"customFields": {
+					"text": "The path to enlightment..."
+				}
+			},
+			{
+				"id": "Text",
+				"iid": "88eec360-b0a0-11ee-8b58-f908a7c61567",
+				"layer": "Entities",
+				"x": 544,
+				"y": 1280,
+				"width": 32,
+				"height": 32,
+				"color": 2281250,
+				"customFields": {
+					"text": "requires many sacrifices."
+				}
+			}
+		],
+		"Fence": [
+			{
+				"id": "Fence",
+				"iid": "a76950f0-b0a0-11ee-8b58-3d0de9955aca",
+				"layer": "Entities",
+				"x": 768,
+				"y": 1024,
+				"width": 32,
+				"height": 32,
+				"color": 4784274,
+				"customFields": {
+					"open": 1
+				}
+			}
+		]
+	}
+}

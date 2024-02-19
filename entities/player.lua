@@ -3,6 +3,7 @@ Player.static._image = love.graphics.newImage("assets/player.png")
 Player.static._target_image = love.graphics.newImage("assets/target.png")
 Player:include(Collides)
 Player:include(Rewindable)
+Player:include(Killable)
 local STATE = {
 	MOVING = "MOVING",
 	KILL_MODE = "KILL_MODE",
@@ -20,6 +21,7 @@ function Player:initialize(props)
 	PubSub.subscribe("keyrelease", function(key)
 		table.insert(self.released_keys, key)
 	end)
+	print("player created x: " .. self.x .. " y: " .. self.y)
 end
 
 function Player:input()
@@ -31,7 +33,10 @@ function Player:input()
 			if self.state == STATE.MOVING then
 				self.dx = -1
 			elseif self.state == STATE.KILL_MODE then
-				self.target_x = self.x - self.w
+				self.target_x = self.target_x - self.w
+				if self.target_x < self.x - self.w then
+					self.target_x = self.x - self.w
+				end
 				self.target_y = self.y
 			end
 		end
@@ -39,7 +44,10 @@ function Player:input()
 			if self.state == STATE.MOVING then
 				self.dx = 1
 			elseif self.state == STATE.KILL_MODE then
-				self.target_x = self.x + self.w
+				self.target_x = self.target_x + self.w
+				if self.target_x > self.x + self.w then
+					self.target_x = self.x + self.w
+				end
 				self.target_y = self.y
 			end
 		end
@@ -48,7 +56,10 @@ function Player:input()
 				self.dy = -1
 			elseif self.state == STATE.KILL_MODE then
 				self.target_x = self.x
-				self.target_y = self.y - self.h
+				self.target_y = self.target_y - self.h
+				if self.target_y < self.y - self.h then
+					self.target_y = self.y - self.h
+				end
 			end
 		end
 		if key == "down" or key == "s" then
@@ -56,18 +67,20 @@ function Player:input()
 				self.dy = 1
 			elseif self.state == STATE.KILL_MODE then
 				self.target_x = self.x
-				self.target_y = self.y + self.h
+				self.target_y = self.target_y + self.h
+				if self.target_y > self.y + self.h then
+					self.target_y = self.y + self.h
+				end
 			end
 		end
 		if key == "x" or key == "l" then
 			if self.state == STATE.KILL_MODE then
 				self.parent:on_each_entity(function(other)
 					if other.kill and other.x == self.target_x and other.y == self.target_y then
-						other:kill()
 						self.state = STATE.MOVING
+						other:kill()
 					end
 				end)
-			-- perform kill
 			else
 				self.state = STATE.KILL_MODE
 				self.target_x = self.x
@@ -78,7 +91,7 @@ function Player:input()
 			if self.state == STATE.KILL_MODE then
 				-- back out of kill mode
 				self.state = STATE.MOVING
-			elseif self.state == STATE.MOVING then
+			elseif self.state == STATE.MOVING or self.state == "DEAD" then
 				-- undo last move
 				self.dx = 0
 				self.dy = 0
