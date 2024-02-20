@@ -1,5 +1,6 @@
 Player = class("Player", BaseEntity)
-Player.static._image = love.graphics.newImage("assets/player.png")
+Player.static._alive_image = love.graphics.newImage("assets/player-alive.png")
+Player.static._dead_image = love.graphics.newImage("assets/player-dead.png")
 Player.static._target_image = love.graphics.newImage("assets/target.png")
 Player:include(Collides)
 Player:include(Rewindable)
@@ -7,10 +8,12 @@ Player:include(Killable)
 local STATE = {
 	MOVING = "MOVING",
 	KILL_MODE = "KILL_MODE",
+	DEAD = "DEAD",
 }
 
 function Player:initialize(props)
 	BaseEntity.initialize(self, props)
+	self.select_sacrific_text = Text:new({ text = "select a sacrific", x = self.x, y = self.y })
 	self.dx = 0
 	self.dy = 0
 	self.target_x = 0
@@ -79,9 +82,16 @@ function Player:input()
 					if other.kill and other.x == self.target_x and other.y == self.target_y then
 						self.state = STATE.MOVING
 						other:kill()
+						return
 					end
 				end)
-			else
+				-- if we are still in kill mode at this point
+				-- then that means that we found now valid targets
+				-- so we should just go back to move mode
+				if self.state == STATE.KILL_MODE then
+					self.state = STATE.MOVING
+				end
+			elseif not self.no_killing and self.state ~= STATE.DEAD then
 				self.state = STATE.KILL_MODE
 				self.target_x = self.x
 				self.target_y = self.y
@@ -91,7 +101,9 @@ function Player:input()
 			if self.state == STATE.KILL_MODE then
 				-- back out of kill mode
 				self.state = STATE.MOVING
-			elseif self.state == STATE.MOVING or self.state == "DEAD" then
+			elseif self.state == STATE.DEAD then
+				self.state = STATE.MOVING
+			elseif self.state == STATE.MOVING then
 				-- undo last move
 				self.dx = 0
 				self.dy = 0
@@ -109,13 +121,20 @@ function Player:update(dt)
 	end
 	self:move(self.dx, self.dy)
 	self.parent:tick()
+	self.select_sacrific_text.x = self.x
+	self.select_sacrific_text.y = self.y + 64
 end
 
 function Player:draw()
 	BaseEntity.draw(self)
-	love.graphics.draw(Player._image, self.x, self.y)
-	love.graphics.print(self.state, self.x - 10, self.y + 20)
+	if self.state == "DEAD" then
+		love.graphics.draw(Player._dead_image, self.x, self.y)
+	else
+		love.graphics.draw(Player._alive_image, self.x, self.y)
+	end
+	love.graphics.print(self.state, self.x - 10, self.y + 40)
 	if self.state == STATE.KILL_MODE then
+		self.select_sacrific_text:draw()
 		love.graphics.draw(Player._target_image, self.target_x, self.target_y)
 	end
 end

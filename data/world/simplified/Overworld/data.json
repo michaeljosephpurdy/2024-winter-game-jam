@@ -12,11 +12,13 @@
 			"dir": "n"
 		},
 		{
-			"levelIid": "ba666d50-b0a0-11ee-8b58-39a22f9726ea",
+			"levelIid": "603837e0-b0a0-11ee-8b58-6d34981b1d1e",
 			"dir": "n"
 		}
 	],
-	"customFields" : {},
+	"customFields": {
+		"no_killing": true
+	},
 	"layers": [
 		"AutoLayer.png"
 	],
@@ -26,8 +28,8 @@
 				"id": "Player_Spawn",
 				"iid": "50548570-b0a0-11ee-8b58-c9fd6971e04e",
 				"layer": "Entities",
-				"x": 64,
-				"y": 1248,
+				"x": 96,
+				"y": 320,
 				"width": 32,
 				"height": 32,
 				"color": 0,
@@ -40,7 +42,7 @@
 				"iid": "d28ddcb0-b0a0-11ee-8b58-8de5d1881499",
 				"layer": "Entities",
 				"x": 64,
-				"y": 96,
+				"y": 128,
 				"width": 32,
 				"height": 32,
 				"color": 39321,
@@ -53,14 +55,42 @@
 				"id": "Cross",
 				"iid": "e1a710e0-b0a0-11ee-8b58-7d84a26d27a9",
 				"layer": "Entities",
-				"x": 288,
-				"y": 96,
+				"x": 128,
+				"y": 64,
 				"width": 32,
 				"height": 32,
 				"color": 39321,
 				"customFields": {
 					"to_level": "Level_1",
 					"active": 1
+				}
+			},
+			{
+				"id": "Cross",
+				"iid": "c4009f80-b0a0-11ee-8b58-bf3a8ea1ac5d",
+				"layer": "Entities",
+				"x": 192,
+				"y": 128,
+				"width": 32,
+				"height": 32,
+				"color": 39321,
+				"customFields": {
+					"to_level": "Level_2",
+					"active": 2
+				}
+			},
+			{
+				"id": "Cross",
+				"iid": "232e9ed0-b0a0-11ee-8b58-394cbccf6530",
+				"layer": "Entities",
+				"x": 128,
+				"y": 192,
+				"width": 32,
+				"height": 32,
+				"color": 39321,
+				"customFields": {
+					"to_level": "Level_3",
+					"active": 4
 				}
 			}
 		],
@@ -69,7 +99,7 @@
 				"id": "Text",
 				"iid": "c41866f0-b0a0-11ee-8b58-5dc34f1c22ab",
 				"layer": "Entities",
-				"x": 192,
+				"x": 320,
 				"y": 1216,
 				"width": 32,
 				"height": 32,
@@ -82,7 +112,7 @@
 				"id": "Text",
 				"iid": "88eec360-b0a0-11ee-8b58-f908a7c61567",
 				"layer": "Entities",
-				"x": 544,
+				"x": 608,
 				"y": 1280,
 				"width": 32,
 				"height": 32,
@@ -104,6 +134,19 @@
 				"color": 4784274,
 				"customFields": {
 					"open": 1
+				}
+			},
+			{
+				"id": "Fence",
+				"iid": "e45105e0-b0a0-11ee-8b58-6d2024c589a6",
+				"layer": "Entities",
+				"x": 192,
+				"y": 896,
+				"width": 32,
+				"height": 32,
+				"color": 4784274,
+				"customFields": {
+					"open": 4
 				}
 			}
 		]

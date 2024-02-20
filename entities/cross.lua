@@ -13,12 +13,24 @@ function Cross:initialize(props)
 	BaseEntity.initialize(self, props)
 	self.is_passable = true
 	self.state = STATE.INACTIVE
+	self.inactive_text = Text:new({ text = self.active, x = self.x - 16, y = self.y + 32 })
+	print("checking if completed " .. self.to_level)
+	if GAME_STATE:is_completed(self.to_level) then
+		print("setting " .. self.to_level .. " as completed")
+		self.state = STATE.COMPLETED
+	end
 end
 
 function Cross:update()
+	if self.state == STATE.COMPETED then
+		return
+	end
 	self.state = STATE.INACTIVE
 	if GAME_STATE.offerings >= self.active then
 		self.state = STATE.ACTIVE
+	end
+	if self.state == STATE.INACTIVE then
+		self.inactive_text.text = GAME_STATE.offerings .. "/" .. self.active
 	end
 end
 
@@ -33,6 +45,7 @@ end
 function Cross:draw()
 	if self.state == STATE.INACTIVE then
 		love.graphics.draw(Cross._inactive, self.x, self.y)
+		self.inactive_text:draw()
 	elseif self.state == STATE.ACTIVE then
 		love.graphics.draw(Cross._active, self.x, self.y)
 	elseif self.state == STATE.COMPLETED then

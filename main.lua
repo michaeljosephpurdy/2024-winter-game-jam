@@ -40,7 +40,7 @@ function love.load()
 	push:setBorderColor(love.math.colorFromBytes(115, 239, 247))
 	GAME_STATE = GameState:new()
 	ScreneTransitionSingleton = ScreenTransition:new()
-	GAME_STATE:transition(PuzzleScene:new("Overworld"))
+	GAME_STATE:transition(PuzzleScene:new("Level_3"))
 end
 
 function love.update(dt)

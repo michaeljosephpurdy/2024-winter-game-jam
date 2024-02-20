@@ -1,0 +1,84 @@
+{
+	"identifier": "Tutorial_1",
+	"uniqueIdentifer": "b4b5b320-b0a0-11ee-8b58-e19e11b1ac91",
+	"x": -4480,
+	"y": 1984,
+	"width": 1376,
+	"height": 448,
+	"bgColor": "#1A1C2C",
+	"neighbourLevels": [
+		{
+			"levelIid": "f61f3d30-b0a0-11ee-8b58-978cb4c32a6d",
+			"dir": "n"
+		},
+		{
+			"levelIid": "6b4dee90-b0a0-11ee-8b58-bb6efa2acd82",
+			"dir": "s"
+		}
+	],
+	"customFields": {
+		"no_killing": false
+	},
+	"layers": [
+		"AutoLayer.png"
+	],
+	"entities": {
+		"Player_Spawn": [
+			{
+				"id": "Player_Spawn",
+				"iid": "b4b5da31-b0a0-11ee-8b58-9b09f4c51af9",
+				"layer": "Entities",
+				"x": 64,
+				"y": 352,
+				"width": 32,
+				"height": 32,
+				"color": 0,
+				"customFields" : {}
+			}
+		],
+		"Cross": [
+			{
+				"id": "Cross",
+				"iid": "b4b5da32-b0a0-11ee-8b58-23027702ee89",
+				"layer": "Entities",
+				"x": 1216,
+				"y": 352,
+				"width": 32,
+				"height": 32,
+				"color": 39321,
+				"customFields": {
+					"to_level": "Tutorial_2",
+					"active": 0
+				}
+			}
+		],
+		"Text": [
+			{
+				"id": "Text",
+				"iid": "b4b5da33-b0a0-11ee-8b58-e9cb0f8f53b7",
+				"layer": "Entities",
+				"x": 256,
+				"y": 288,
+				"width": 32,
+				"height": 32,
+				"color": 2281250,
+				"customFields": {
+					"text": "The path to ENLIGHTENMENT..."
+				}
+			},
+			{
+				"id": "Text",
+				"iid": "4df54460-b0a0-11ee-8b58-c9a8e950887f",
+				"layer": "Entities",
+				"x": 832,
+				"y": 416,
+				"width": 32,
+				"height": 32,
+				"color": 2281250,
+				"customFields": {
+					"text": "requires many SACRIFICES..."
+				}
+			}
+		]
+	}
+}

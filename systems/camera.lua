@@ -48,6 +48,12 @@ function Camera:update(e, dt)
 	elseif e.y <= level.top_boundary + GAME_HEIGHT / 2 then
 		self.position.y = level.top_boundary
 	end
+	if level.width <= GAME_WIDTH then
+		self.position.x = level.left_boundary
+	end
+	if level.height <= GAME_HEIGHT then
+		self.position.y = level.top_boundary
+	end
 	self.position.y = lerp(self.old_position.y, self.position.y, 25 * dt)
 end
 

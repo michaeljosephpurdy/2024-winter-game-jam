@@ -57,6 +57,9 @@ function SuperSimpleLdtk:load(level_id, on_image, on_tile, on_entity)
 		level_id = level_id,
 		neighbors = {},
 	}
+	for k, v in pairs(data.customFields) do
+		level[k] = v
+	end
 	print(level_id .. " x: " .. level.x .. " y: " .. level.y)
 	for _, neighbor in pairs(data.neighbourLevels) do
 		table.insert(level.neighbors, neighbor.levelIid)

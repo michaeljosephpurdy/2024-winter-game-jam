@@ -1,0 +1,130 @@
+{
+	"identifier": "Level_2",
+	"uniqueIdentifer": "0f5b16e0-b0a0-11ee-8b58-5f7ece5f7444",
+	"x": 1280,
+	"y": 0,
+	"width": 320,
+	"height": 288,
+	"bgColor": "#1A1C2C",
+	"neighbourLevels": [
+		{
+			"levelIid": "c6fae930-b0a0-11ee-8b58-57a11491e397",
+			"dir": "e"
+		},
+		{
+			"levelIid": "603837e0-b0a0-11ee-8b58-6d34981b1d1e",
+			"dir": "w"
+		}
+	],
+	"customFields": {
+		"no_killing": false
+	},
+	"layers": [
+		"AutoLayer.png"
+	],
+	"entities": {
+		"Player_Spawn": [
+			{
+				"id": "Player_Spawn",
+				"iid": "0f5b16e2-b0a0-11ee-8b58-afdd7091bf53",
+				"layer": "Entities",
+				"x": 64,
+				"y": 32,
+				"width": 32,
+				"height": 32,
+				"color": 0,
+				"customFields" : {}
+			}
+		],
+		"Altar": [
+			{
+				"id": "Altar",
+				"iid": "0f5b16e3-b0a0-11ee-8b58-ef513dd2d442",
+				"layer": "Entities",
+				"x": 256,
+				"y": 160,
+				"width": 32,
+				"height": 32,
+				"color": 18761,
+				"customFields" : {}
+			},
+			{
+				"id": "Altar",
+				"iid": "67f82db0-b0a0-11ee-8b58-9f2dcc779db6",
+				"layer": "Entities",
+				"x": 192,
+				"y": 32,
+				"width": 32,
+				"height": 32,
+				"color": 18761,
+				"customFields" : {}
+			}
+		],
+		"Exit": [
+			{
+				"id": "Exit",
+				"iid": "0f5b16e4-b0a0-11ee-8b58-f3e38a202c51",
+				"layer": "Entities",
+				"x": 160,
+				"y": 256,
+				"width": 32,
+				"height": 32,
+				"color": 2434341,
+				"customFields": {
+					"next_level": "Overworld"
+				}
+			}
+		],
+		"Animal": [
+			{
+				"id": "Animal",
+				"iid": "0f5b16e5-b0a0-11ee-8b58-fd9a417cb714",
+				"layer": "Entities",
+				"x": 96,
+				"y": 32,
+				"width": 32,
+				"height": 32,
+				"color": 16777215,
+				"customFields" : {}
+			},
+			{
+				"id": "Animal",
+				"iid": "520ff690-b0a0-11ee-8b58-33bf1468dcab",
+				"layer": "Entities",
+				"x": 192,
+				"y": 160,
+				"width": 32,
+				"height": 32,
+				"color": 16777215,
+				"customFields" : {}
+			},
+			{
+				"id": "Animal",
+				"iid": "59e4a9b0-b0a0-11ee-8b58-a52d4204d667",
+				"layer": "Entities",
+				"x": 96,
+				"y": 128,
+				"width": 32,
+				"height": 32,
+				"color": 16777215,
+				"customFields" : {}
+			}
+		],
+		"Cross": [
+			{
+				"id": "Cross",
+				"iid": "60069f90-b0a0-11ee-8b58-c3896ea3e90f",
+				"layer": "Entities",
+				"x": 32,
+				"y": 32,
+				"width": 32,
+				"height": 32,
+				"color": 39321,
+				"customFields": {
+					"to_level": "Overworld",
+					"active": 0
+				}
+			}
+		]
+	}
+}

@@ -8,19 +8,21 @@
 	"bgColor": "#1A1C2C",
 	"neighbourLevels": [
 		{
-			"levelIid": "bf688830-b0a0-11ee-8b58-a33c7fc16db8",
+			"levelIid": "b7fd96e0-b0a0-11ee-8b58-b1ee0c7452ac",
+			"dir": "n"
+		},
+		{
+			"levelIid": "603837e0-b0a0-11ee-8b58-6d34981b1d1e",
 			"dir": "e"
 		},
 		{
 			"levelIid": "aad76ce0-b0a0-11ee-8b58-59c5581caf72",
 			"dir": "s"
-		},
-		{
-			"levelIid": "ba666d50-b0a0-11ee-8b58-39a22f9726ea",
-			"dir": "e"
 		}
 	],
-	"customFields" : {},
+	"customFields": {
+		"no_killing": false
+	},
 	"layers": [
 		"AutoLayer.png"
 	],
@@ -38,30 +40,61 @@
 				"customFields" : {}
 			}
 		],
+		"Altar": [
+			{
+				"id": "Altar",
+				"iid": "924d6c20-b0a0-11ee-8b58-9fbd306054ec",
+				"layer": "Entities",
+				"x": 448,
+				"y": 320,
+				"width": 32,
+				"height": 32,
+				"color": 18761,
+				"customFields" : {}
+			}
+		],
+		"Exit": [
+			{
+				"id": "Exit",
+				"iid": "1abe0a90-b0a0-11ee-8b58-5fea812d1766",
+				"layer": "Entities",
+				"x": 288,
+				"y": 480,
+				"width": 32,
+				"height": 32,
+				"color": 2434341,
+				"customFields": {
+					"next_level": "Overworld"
+				}
+			}
+		],
 		"Animal": [
 			{
 				"id": "Animal",
-				"iid": "90f667a0-b0a0-11ee-8b58-9d532b0c7cf8",
+				"iid": "e189afe0-b0a0-11ee-8b58-8385ef84ad31",
 				"layer": "Entities",
-				"x": 192,
-				"y": 320,
+				"x": 224,
+				"y": 288,
 				"width": 32,
 				"height": 32,
 				"color": 16777215,
 				"customFields" : {}
 			}
 		],
-		"Altar": [
+		"Cross": [
 			{
-				"id": "Altar",
-				"iid": "924d6c20-b0a0-11ee-8b58-9fbd306054ec",
+				"id": "Cross",
+				"iid": "98cd6200-b0a0-11ee-8b58-472f72da2c82",
 				"layer": "Entities",
-				"x": 256,
+				"x": 64,
 				"y": 320,
 				"width": 32,
 				"height": 32,
-				"color": 18761,
-				"customFields" : {}
+				"color": 39321,
+				"customFields": {
+					"to_level": "Overworld",
+					"active": 0
+				}
 			}
 		]
 	}

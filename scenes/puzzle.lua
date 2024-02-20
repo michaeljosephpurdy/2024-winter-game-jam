@@ -2,6 +2,8 @@ PuzzleScene = class("PuzzleScene", BaseScene)
 
 function PuzzleScene:initialize(level_id, from)
 	BaseScene.initialize(self)
+	self.try_again_text = Text:new({ text = "Atone for your\nsins", x = GAME_WIDTH / 2, y = GAME_HEIGHT / 2 })
+	self.won_text = Text:new({ text = "", x = GAME_WIDTH / 2, y = GAME_HEIGHT / 2 })
 	self.is_overworld = level_id == "Overworld"
 	self.camera = Camera:new()
 	self.tiles = {}
@@ -51,23 +53,29 @@ function PuzzleScene:initialize(level_id, from)
 			self.exit = Exit:new(payload)
 		end
 	end
-	ldtk:load(level_id, on_image, on_tile, on_entity)
+	local level = ldtk:load(level_id, on_image, on_tile, on_entity)
+	self.no_killing = level.no_killing
 	PubSub.subscribe("keyrelease", function(key)
-		if self.is_overworld and (key == "x" or key == "l") then
+		if #self.crosses > 0 and (key == "x" or key == "l") then
 			for _, cross in pairs(self.crosses) do
 				if cross.x == self.player.x and cross.y == self.player.y and cross:can_enter() then
 					PubSub:purge()
-					GAME_STATE:transition(PuzzleScene:new(cross.to_level))
+					GAME_STATE:transition(PuzzleScene:new(cross.to_level, level_id))
 					return
 				end
 			end
 		end
-		if not self.is_overworld and self.over and (key == "x" or key == "l") then
+		if not self.no_killing and key == "enter" then
+			PubSub:purge()
+			GAME_STATE:transition(PuzzleScene:new(level_id, from))
+			return
+		end
+		if not self.no_killing and self.over and (key == "x" or key == "l") then
 			GAME_STATE:save_progress(level_id, {
 				offerings = self.sacrifices,
 			})
 			PubSub:purge()
-			GAME_STATE:transition(PuzzleScene:new("Overworld", level_id))
+			GAME_STATE:transition(PuzzleScene:new(self.exit.next_level, level_id))
 			return
 		end
 	end)
@@ -75,6 +83,7 @@ function PuzzleScene:initialize(level_id, from)
 		self.player.x = self.player_start.x
 		self.player.y = self.player_start.y
 	end
+	self.player.no_killing = self.no_killing
 	print("player x: " .. self.player.x .. " y: " .. self.player.y)
 	print("#entities: " .. #self.entities)
 end
@@ -86,9 +95,6 @@ function PuzzleScene:on_each_entity(fn)
 end
 
 function PuzzleScene:rewind()
-	if self.is_overworld then
-		return
-	end
 	self.current_turn = self.current_turn - 1
 	if self.current_turn < 1 then
 		self.current_turn = 1
@@ -101,9 +107,6 @@ function PuzzleScene:rewind()
 end
 
 function PuzzleScene:tick()
-	if self.is_overworld then
-		return
-	end
 	-- save the current turn
 	-- then advance
 	self:on_each_entity(function(entity)
@@ -147,9 +150,4 @@ function PuzzleScene:draw()
 		entity:draw()
 	end
 	self.player:draw()
-	love.graphics.print("turn: " .. self.current_turn, 40, 40)
-	love.graphics.print("sacrifices: " .. self.sacrifices .. "/" .. #self.altars, 40, 60)
-	if self.over then
-		love.graphics.print("you won", 40, 80)
-	end
 end

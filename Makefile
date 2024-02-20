@@ -4,11 +4,12 @@ all:
 images:
 	aseprite -b assets/box.aseprite --save-as assets/box.png
 	aseprite -b assets/exit.aseprite --save-as assets/exit.png
-	aseprite -b assets/player.aseprite --save-as assets/player.png
 	aseprite -b assets/altar.aseprite --save-as assets/altar.png
 	aseprite -b assets/target.aseprite --save-as assets/target.png
 	aseprite -b --layer "alive" assets/cow.aseprite --save-as assets/cow-alive.png
 	aseprite -b --layer "dead" assets/cow.aseprite --save-as assets/cow-dead.png
+	aseprite -b --layer "alive" assets/player.aseprite --save-as assets/player-alive.png
+	aseprite -b --layer "dead" assets/player.aseprite --save-as assets/player-dead.png
 	aseprite -b --layer "inactive" assets/enter.aseprite --save-as assets/enter-inactive.png
 	aseprite -b --layer "active" assets/enter.aseprite --save-as assets/enter-active.png
 	aseprite -b --layer "completed" assets/enter.aseprite --save-as assets/enter-completed.png

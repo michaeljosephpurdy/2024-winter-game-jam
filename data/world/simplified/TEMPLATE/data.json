@@ -1,0 +1,81 @@
+{
+	"identifier": "TEMPLATE",
+	"uniqueIdentifer": "b7fd96e0-b0a0-11ee-8b58-b1ee0c7452ac",
+	"x": 352,
+	"y": -640,
+	"width": 640,
+	"height": 640,
+	"bgColor": "#1A1C2C",
+	"neighbourLevels": [
+		{
+			"levelIid": "71c32692-b0a0-11ee-8b58-9544504138ba",
+			"dir": "s"
+		},
+		{
+			"levelIid": "603837e0-b0a0-11ee-8b58-6d34981b1d1e",
+			"dir": "s"
+		}
+	],
+	"customFields": {
+		"no_killing": false
+	},
+	"layers": [
+		"AutoLayer.png"
+	],
+	"entities": {
+		"Player_Spawn": [
+			{
+				"id": "Player_Spawn",
+				"iid": "b7fdbdf0-b0a0-11ee-8b58-850cded5aba2",
+				"layer": "Entities",
+				"x": 256,
+				"y": 352,
+				"width": 32,
+				"height": 32,
+				"color": 0,
+				"customFields" : {}
+			}
+		],
+		"Altar": [
+			{
+				"id": "Altar",
+				"iid": "b7fdbdf1-b0a0-11ee-8b58-ab3cbd694b2a",
+				"layer": "Entities",
+				"x": 320,
+				"y": 352,
+				"width": 32,
+				"height": 32,
+				"color": 18761,
+				"customFields" : {}
+			}
+		],
+		"Exit": [
+			{
+				"id": "Exit",
+				"iid": "b7fdbdf2-b0a0-11ee-8b58-e1935f375568",
+				"layer": "Entities",
+				"x": 288,
+				"y": 480,
+				"width": 32,
+				"height": 32,
+				"color": 2434341,
+				"customFields": {
+					"next_level": "Overworld"
+				}
+			}
+		],
+		"Animal": [
+			{
+				"id": "Animal",
+				"iid": "b7fdbdf3-b0a0-11ee-8b58-19be30382556",
+				"layer": "Entities",
+				"x": 288,
+				"y": 320,
+				"width": 32,
+				"height": 32,
+				"color": 16777215,
+				"customFields" : {}
+			}
+		]
+	}
+}

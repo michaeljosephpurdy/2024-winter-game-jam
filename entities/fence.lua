@@ -7,8 +7,9 @@ function Fence:initialize(props)
 end
 
 function Fence:update()
-	self.closed = self.open < GAME_STATE.offerings
-	self.is_solid = not self.closed
+	self.closed = self.open >= GAME_STATE.offerings
+	self.is_passable = not self.closed
+	self.is_solid = self.closed
 end
 
 function Fence:draw()

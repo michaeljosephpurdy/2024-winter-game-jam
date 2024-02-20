@@ -1,0 +1,80 @@
+{
+	"identifier": "Tutorial_0",
+	"uniqueIdentifer": "f61f3d30-b0a0-11ee-8b58-978cb4c32a6d",
+	"x": -4480,
+	"y": 1536,
+	"width": 1376,
+	"height": 448,
+	"bgColor": "#1A1C2C",
+	"neighbourLevels": [
+		{
+			"levelIid": "b4b5b320-b0a0-11ee-8b58-e19e11b1ac91",
+			"dir": "s"
+		}
+	],
+	"customFields": {
+		"no_killing": false
+	},
+	"layers": [
+		"AutoLayer.png"
+	],
+	"entities": {
+		"Cross": [
+			{
+				"id": "Cross",
+				"iid": "1875d3d0-b0a0-11ee-8b58-99252ebf966f",
+				"layer": "Entities",
+				"x": 1056,
+				"y": 288,
+				"width": 32,
+				"height": 32,
+				"color": 39321,
+				"customFields": {
+					"to_level": "Tutorial_1",
+					"active": 0
+				}
+			}
+		],
+		"Text": [
+			{
+				"id": "Text",
+				"iid": "23f7d780-b0a0-11ee-8b58-cf16bc1504e8",
+				"layer": "Entities",
+				"x": 1056,
+				"y": 192,
+				"width": 32,
+				"height": 32,
+				"color": 2281250,
+				"customFields": {
+					"text": "Praying with\n    'x'\nwill bring you\n closer to me."
+				}
+			},
+			{
+				"id": "Text",
+				"iid": "a1f69150-b0a0-11ee-8b58-991074064ee5",
+				"layer": "Entities",
+				"x": 384,
+				"y": 64,
+				"width": 32,
+				"height": 32,
+				"color": 2281250,
+				"customFields": {
+					"text": "All sins are\nforgiven by\natoning with\n    'z'"
+				}
+			}
+		],
+		"Player_Spawn": [
+			{
+				"id": "Player_Spawn",
+				"iid": "14caa620-b0a0-11ee-8b58-65504225ce1f",
+				"layer": "Entities",
+				"x": 384,
+				"y": 128,
+				"width": 32,
+				"height": 32,
+				"color": 0,
+				"customFields" : {}
+			}
+		]
+	}
+}
