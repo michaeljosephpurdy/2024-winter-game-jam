@@ -34,7 +34,7 @@
 				"height": 32,
 				"color": 2281250,
 				"customFields": {
-					"text": "Pressing 'x' will\nallow you to make\na sacrifice"
+					"text": "pressing 'x' will\nallow you to make\na sacrifice"
 				}
 			},
 			{
@@ -47,7 +47,7 @@
 				"height": 32,
 				"color": 2281250,
 				"customFields": {
-					"text": "Sacrific yourself\non my altar..."
+					"text": "sacrific yourself\non my altar..."
 				}
 			}
 		],

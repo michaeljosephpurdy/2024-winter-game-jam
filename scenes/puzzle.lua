@@ -67,12 +67,13 @@ function PuzzleScene:initialize(level_id, from)
 				end
 			end
 		end
+		-- restart the level?
 		if not self.no_killing and key == "enter" then
 			PubSub:purge()
 			GAME_STATE:transition(PuzzleScene:new(level_id, from))
 			return
 		end
-		if not self.no_killing and self.over and (key == "x" or key == "l") then
+		if self.exit and not self.no_killing and self.over and (key == "x" or key == "l") then
 			GAME_STATE:save_progress(level_id, {
 				offerings = self.sacrifices,
 			})

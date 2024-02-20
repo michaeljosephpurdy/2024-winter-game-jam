@@ -46,7 +46,7 @@
 				"height": 32,
 				"color": 2281250,
 				"customFields": {
-					"text": "Praying with 'x'\nwill bring you\ncloser to me..."
+					"text": "praying with 'x'\nwill bring you\ncloser to me..."
 				}
 			},
 			{
@@ -59,7 +59,7 @@
 				"height": 32,
 				"color": 2281250,
 				"customFields": {
-					"text": "All sins are\nforgiven by\natoning with\n    'z'"
+					"text": "all sins are\nforgiven by\natoning with\n    'z'"
 				}
 			}
 		],

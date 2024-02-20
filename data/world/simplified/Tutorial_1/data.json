@@ -63,14 +63,14 @@
 				"height": 32,
 				"color": 2281250,
 				"customFields": {
-					"text": "The path to enlightenment..."
+					"text": "the path to enlightenment..."
 				}
 			},
 			{
 				"id": "Text",
 				"iid": "4df54460-b0a0-11ee-8b58-c9a8e950887f",
 				"layer": "Entities",
-				"x": 832,
+				"x": 736,
 				"y": 416,
 				"width": 32,
 				"height": 32,

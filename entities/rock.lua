@@ -11,7 +11,7 @@ local STATE = {
 function Rock:initialize(props)
 	BaseEntity.initialize(self, props)
 	self.state = STATE.MOVABLE
-	self.max_depth = 1
+	self.weight = 1
 end
 
 function Rock:draw()

@@ -132,9 +132,11 @@ function Player:draw()
 	else
 		love.graphics.draw(Player._alive_image, self.x, self.y)
 	end
-	love.graphics.print(self.state, self.x - 10, self.y + 40)
 	if self.state == STATE.KILL_MODE then
 		self.select_sacrific_text:draw()
 		love.graphics.draw(Player._target_image, self.target_x, self.target_y)
+	end
+	if DEBUG then
+		love.graphics.print(self.state, self.x - 10, self.y + 40)
 	end
 end

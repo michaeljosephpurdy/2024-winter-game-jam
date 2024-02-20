@@ -33,7 +33,7 @@
 				"iid": "7027dc90-b0a0-11ee-8b58-c7e66e25aeec",
 				"layer": "Entities",
 				"x": 128,
-				"y": 320,
+				"y": 96,
 				"width": 32,
 				"height": 32,
 				"color": 0,
@@ -45,8 +45,8 @@
 				"id": "Altar",
 				"iid": "924d6c20-b0a0-11ee-8b58-9fbd306054ec",
 				"layer": "Entities",
-				"x": 448,
-				"y": 320,
+				"x": 128,
+				"y": 384,
 				"width": 32,
 				"height": 32,
 				"color": 18761,
@@ -74,7 +74,7 @@
 				"iid": "98cd6200-b0a0-11ee-8b58-472f72da2c82",
 				"layer": "Entities",
 				"x": 64,
-				"y": 320,
+				"y": 160,
 				"width": 32,
 				"height": 32,
 				"color": 39321,
@@ -90,7 +90,7 @@
 				"iid": "6b632f60-b0a0-11ee-8b58-b77b8563492d",
 				"layer": "Entities",
 				"x": 448,
-				"y": 288,
+				"y": 96,
 				"width": 32,
 				"height": 32,
 				"color": 28123,
@@ -101,10 +101,34 @@
 				"iid": "74f98fb0-b0a0-11ee-8b58-7565317841a7",
 				"layer": "Entities",
 				"x": 224,
-				"y": 288,
+				"y": 96,
 				"width": 32,
 				"height": 32,
 				"color": 28123,
+				"customFields" : {}
+			}
+		],
+		"Animal": [
+			{
+				"id": "Animal",
+				"iid": "35a2f000-b0a0-11ee-8b58-192cfdebba56",
+				"layer": "Entities",
+				"x": 256,
+				"y": 288,
+				"width": 32,
+				"height": 32,
+				"color": 16777215,
+				"customFields" : {}
+			},
+			{
+				"id": "Animal",
+				"iid": "36ff99d0-b0a0-11ee-8b58-8b8afbc15953",
+				"layer": "Entities",
+				"x": 352,
+				"y": 288,
+				"width": 32,
+				"height": 32,
+				"color": 16777215,
 				"customFields" : {}
 			}
 		]

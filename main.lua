@@ -29,6 +29,7 @@ require("entities.rock")
 
 GAME_WIDTH = 320
 GAME_HEIGHT = 320
+DEBUG = false
 
 function love.load()
 	local windowWidth, windowHeight = love.window.getDesktopDimensions()

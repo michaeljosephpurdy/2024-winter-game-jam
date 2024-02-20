@@ -52,7 +52,7 @@ function BaseEntity:move(dx, dy, depth)
 			return
 		end
 		-- some objects, like rocks, can only be pushed so hard
-		if other.max_depth and other.max_depth < depth then
+		if other.weight and other.weight < depth then
 			moved = false
 			return
 		end
@@ -60,7 +60,7 @@ function BaseEntity:move(dx, dy, depth)
 			moved = false
 			return
 		end
-		if not other:move(dx, dy, depth + 1) then
+		if not other:move(dx, dy, depth + (other.weight or 0)) then
 			moved = false
 		end
 	end)
