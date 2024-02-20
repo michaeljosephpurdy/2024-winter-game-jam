@@ -26,6 +26,8 @@ function PuzzleScene:initialize(level_id, from)
 		if payload.id == "Player_Spawn" then
 			self.player = Player:new(payload)
 			table.insert(self.entities, self.player)
+		elseif payload.id == "Rock" then
+			table.insert(self.entities, Rock:new(payload))
 		elseif payload.id == "Animal" then
 			table.insert(self.entities, Animal:new(payload))
 		elseif payload.id == "Altar" then

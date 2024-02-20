@@ -28,8 +28,8 @@
 				"id": "Player_Spawn",
 				"iid": "50548570-b0a0-11ee-8b58-c9fd6971e04e",
 				"layer": "Entities",
-				"x": 96,
-				"y": 320,
+				"x": 32,
+				"y": 1248,
 				"width": 32,
 				"height": 32,
 				"color": 0,
@@ -91,34 +91,6 @@
 				"customFields": {
 					"to_level": "Level_3",
 					"active": 4
-				}
-			}
-		],
-		"Text": [
-			{
-				"id": "Text",
-				"iid": "c41866f0-b0a0-11ee-8b58-5dc34f1c22ab",
-				"layer": "Entities",
-				"x": 320,
-				"y": 1216,
-				"width": 32,
-				"height": 32,
-				"color": 2281250,
-				"customFields": {
-					"text": "The path to enlightment..."
-				}
-			},
-			{
-				"id": "Text",
-				"iid": "88eec360-b0a0-11ee-8b58-f908a7c61567",
-				"layer": "Entities",
-				"x": 608,
-				"y": 1280,
-				"width": 32,
-				"height": 32,
-				"color": 2281250,
-				"customFields": {
-					"text": "requires many sacrifices."
 				}
 			}
 		],

@@ -68,19 +68,6 @@
 				}
 			}
 		],
-		"Animal": [
-			{
-				"id": "Animal",
-				"iid": "e189afe0-b0a0-11ee-8b58-8385ef84ad31",
-				"layer": "Entities",
-				"x": 224,
-				"y": 288,
-				"width": 32,
-				"height": 32,
-				"color": 16777215,
-				"customFields" : {}
-			}
-		],
 		"Cross": [
 			{
 				"id": "Cross",
@@ -95,6 +82,30 @@
 					"to_level": "Overworld",
 					"active": 0
 				}
+			}
+		],
+		"Rock": [
+			{
+				"id": "Rock",
+				"iid": "6b632f60-b0a0-11ee-8b58-b77b8563492d",
+				"layer": "Entities",
+				"x": 448,
+				"y": 288,
+				"width": 32,
+				"height": 32,
+				"color": 28123,
+				"customFields" : {}
+			},
+			{
+				"id": "Rock",
+				"iid": "74f98fb0-b0a0-11ee-8b58-7565317841a7",
+				"layer": "Entities",
+				"x": 224,
+				"y": 288,
+				"width": 32,
+				"height": 32,
+				"color": 28123,
+				"customFields" : {}
 			}
 		]
 	}

@@ -10,6 +10,10 @@
 		{
 			"levelIid": "b4b5b320-b0a0-11ee-8b58-e19e11b1ac91",
 			"dir": "n"
+		},
+		{
+			"levelIid": "be185270-b0a0-11ee-8b58-7d7cbf74c8b7",
+			"dir": "s"
 		}
 	],
 	"customFields": {
@@ -58,7 +62,7 @@
 				"height": 32,
 				"color": 2434341,
 				"customFields": {
-					"next_level": "Overworld"
+					"next_level": "Tutorial_3"
 				}
 			}
 		],

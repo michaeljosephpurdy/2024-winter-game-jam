@@ -1,0 +1,64 @@
+{
+	"identifier": "Tutorial_4",
+	"uniqueIdentifer": "29766fc0-b0a0-11ee-8b58-1728ea477287",
+	"x": -3968,
+	"y": 3584,
+	"width": 352,
+	"height": 576,
+	"bgColor": "#1A1C2C",
+	"neighbourLevels": [
+		{
+			"levelIid": "be185270-b0a0-11ee-8b58-7d7cbf74c8b7",
+			"dir": "n"
+		}
+	],
+	"customFields": {
+		"no_killing": false
+	},
+	"layers": [
+		"AutoLayer.png"
+	],
+	"entities": {
+		"Exit": [
+			{
+				"id": "Exit",
+				"iid": "29766fc3-b0a0-11ee-8b58-d9b1782a6677",
+				"layer": "Entities",
+				"x": 160,
+				"y": 64,
+				"width": 32,
+				"height": 32,
+				"color": 2434341,
+				"customFields": {
+					"next_level": "Overworld"
+				}
+			}
+		],
+		"Player_Spawn": [
+			{
+				"id": "Player_Spawn",
+				"iid": "29766fc4-b0a0-11ee-8b58-39aed758f58f",
+				"layer": "Entities",
+				"x": 160,
+				"y": 480,
+				"width": 32,
+				"height": 32,
+				"color": 0,
+				"customFields" : {}
+			}
+		],
+		"Altar": [
+			{
+				"id": "Altar",
+				"iid": "29766fc5-b0a0-11ee-8b58-158baecc22df",
+				"layer": "Entities",
+				"x": 160,
+				"y": 256,
+				"width": 32,
+				"height": 32,
+				"color": 18761,
+				"customFields" : {}
+			}
+		]
+	}
+}

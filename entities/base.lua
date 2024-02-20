@@ -13,7 +13,8 @@ function BaseEntity:update(dt)
 	self.old_y = self.y
 end
 
-function BaseEntity:move(dx, dy)
+function BaseEntity:move(dx, dy, depth)
+	depth = depth or 1
 	self.x = self.x + dx * self.h
 	self.y = self.y + dy * self.h
 	self.new_x = self.x
@@ -32,15 +33,17 @@ function BaseEntity:move(dx, dy)
 		if self == other then
 			return
 		end
+		-- if we didnt collide with the entity then were fine
+		if not self:collides_on_grid(other) then
+			return
+		end
 		if other.is_passable then
 			if other.is_altar then
 				self.is_on_altar = true
 			end
 			return
 		end
-		if not self:collides_on_grid(other) then
-			return
-		end
+		-- we have a collision, so we need to rollback
 		-- rollback
 		self.x = self.old_x
 		self.y = self.old_y
@@ -48,11 +51,16 @@ function BaseEntity:move(dx, dy)
 			moved = false
 			return
 		end
+		-- some objects, like rocks, can only be pushed so hard
+		if other.max_depth and other.max_depth < depth then
+			moved = false
+			return
+		end
 		if other.is_dead and other:is_dead() then
 			moved = false
 			return
 		end
-		if not other:move(dx, dy) then
+		if not other:move(dx, dy, depth + 1) then
 			moved = false
 		end
 	end)

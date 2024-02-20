@@ -10,5 +10,5 @@ function BaseScene:update()
 end
 
 function BaseScene:draw()
-	love.graphics.clear()
+	love.graphics.clear(115 / 255, 239 / 255, 247 / 255)
 end

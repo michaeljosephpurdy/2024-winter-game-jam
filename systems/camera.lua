@@ -33,8 +33,8 @@ function Camera:update(e, dt)
 	local level = self.levels[e.level_id]
 	self.old_position.x = self.position.x
 	self.old_position.y = self.position.y
-	self.position.x = e.x + self.offset_position.x
-	self.position.y = e.y + self.offset_position.y
+	self.position.x = e.x + e.w / 2 + self.offset_position.x
+	self.position.y = e.y + e.h / 2 + self.offset_position.y
 	local camera_offset = 0
 	self.position.x = self.position.x + camera_offset
 	if e.x + camera_offset >= level.right_boundary - GAME_WIDTH / 2 then

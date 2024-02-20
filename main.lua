@@ -25,6 +25,7 @@ require("entities.animal")
 require("entities.altar")
 require("entities.fence")
 require("entities.text")
+require("entities.rock")
 
 GAME_WIDTH = 320
 GAME_HEIGHT = 320
@@ -38,9 +39,10 @@ function love.load()
 	push:resize(windowWidth, windowHeight)
 	ldtk:init("world")
 	push:setBorderColor(love.math.colorFromBytes(115, 239, 247))
+	push:setBorderColor(love.math.colorFromBytes(26, 28, 44))
 	GAME_STATE = GameState:new()
 	ScreneTransitionSingleton = ScreenTransition:new()
-	GAME_STATE:transition(PuzzleScene:new("Level_3"))
+	GAME_STATE:transition(PuzzleScene:new("Tutorial_0"))
 end
 
 function love.update(dt)

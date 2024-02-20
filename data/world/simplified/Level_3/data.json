@@ -60,74 +60,6 @@
 				}
 			}
 		],
-		"Animal": [
-			{
-				"id": "Animal",
-				"iid": "c6fae935-b0a0-11ee-8b58-3f8124b2b837",
-				"layer": "Entities",
-				"x": 224,
-				"y": 320,
-				"width": 32,
-				"height": 32,
-				"color": 16777215,
-				"customFields" : {}
-			},
-			{
-				"id": "Animal",
-				"iid": "2d6d1b70-b0a0-11ee-8b58-916157f50776",
-				"layer": "Entities",
-				"x": 288,
-				"y": 320,
-				"width": 32,
-				"height": 32,
-				"color": 16777215,
-				"customFields" : {}
-			},
-			{
-				"id": "Animal",
-				"iid": "2ddf3e30-b0a0-11ee-8b58-8b25360dc5c5",
-				"layer": "Entities",
-				"x": 256,
-				"y": 288,
-				"width": 32,
-				"height": 32,
-				"color": 16777215,
-				"customFields" : {}
-			},
-			{
-				"id": "Animal",
-				"iid": "2f27ead0-b0a0-11ee-8b58-d3ee0c4f76c9",
-				"layer": "Entities",
-				"x": 288,
-				"y": 288,
-				"width": 32,
-				"height": 32,
-				"color": 16777215,
-				"customFields" : {}
-			},
-			{
-				"id": "Animal",
-				"iid": "327df3a0-b0a0-11ee-8b58-0fc9e99bcd1f",
-				"layer": "Entities",
-				"x": 288,
-				"y": 256,
-				"width": 32,
-				"height": 32,
-				"color": 16777215,
-				"customFields" : {}
-			},
-			{
-				"id": "Animal",
-				"iid": "349e89b0-b0a0-11ee-8b58-df07e883d1aa",
-				"layer": "Entities",
-				"x": 256,
-				"y": 224,
-				"width": 32,
-				"height": 32,
-				"color": 16777215,
-				"customFields" : {}
-			}
-		],
 		"Cross": [
 			{
 				"id": "Cross",
@@ -142,6 +74,74 @@
 					"to_level": "Overworld",
 					"active": 0
 				}
+			}
+		],
+		"Rock": [
+			{
+				"id": "Rock",
+				"iid": "b1625810-b0a0-11ee-8b58-b7c84dcb1ae0",
+				"layer": "Entities",
+				"x": 224,
+				"y": 320,
+				"width": 32,
+				"height": 32,
+				"color": 28123,
+				"customFields" : {}
+			},
+			{
+				"id": "Rock",
+				"iid": "b3e13ac0-b0a0-11ee-8b58-e565c10ec108",
+				"layer": "Entities",
+				"x": 288,
+				"y": 320,
+				"width": 32,
+				"height": 32,
+				"color": 28123,
+				"customFields" : {}
+			},
+			{
+				"id": "Rock",
+				"iid": "b9cc6d60-b0a0-11ee-8b58-d1c92b02f9b6",
+				"layer": "Entities",
+				"x": 256,
+				"y": 288,
+				"width": 32,
+				"height": 32,
+				"color": 28123,
+				"customFields" : {}
+			},
+			{
+				"id": "Rock",
+				"iid": "bd508b10-b0a0-11ee-8b58-e3371ae6898a",
+				"layer": "Entities",
+				"x": 288,
+				"y": 256,
+				"width": 32,
+				"height": 32,
+				"color": 28123,
+				"customFields" : {}
+			},
+			{
+				"id": "Rock",
+				"iid": "bddf3680-b0a0-11ee-8b58-3d6a82e513c5",
+				"layer": "Entities",
+				"x": 320,
+				"y": 288,
+				"width": 32,
+				"height": 32,
+				"color": 28123,
+				"customFields" : {}
+			},
+			{
+				"id": "Rock",
+				"iid": "c3469320-b0a0-11ee-8b58-d55aaa057fc6",
+				"layer": "Entities",
+				"x": 256,
+				"y": 256,
+				"width": 32,
+				"height": 32,
+				"color": 28123,
+				"customFields" : {}
 			}
 		]
 	}
