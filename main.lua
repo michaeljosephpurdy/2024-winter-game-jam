@@ -30,6 +30,7 @@ require("entities.rock")
 GAME_WIDTH = 320
 GAME_HEIGHT = 320
 DEBUG = false
+--DEBUG_LEVEL = "Level_2_2"
 
 function love.load()
 	local windowWidth, windowHeight = love.window.getDesktopDimensions()
@@ -43,7 +44,11 @@ function love.load()
 	push:setBorderColor(love.math.colorFromBytes(26, 28, 44))
 	GAME_STATE = GameState:new()
 	ScreneTransitionSingleton = ScreenTransition:new()
-	GAME_STATE:transition(PuzzleScene:new("Tutorial_0"))
+	if DEBUG_LEVEL then
+		GAME_STATE:transition(PuzzleScene:new(DEBUG_LEVEL))
+	else
+		GAME_STATE:transition(PuzzleScene:new("Tutorial_0"))
+	end
 end
 
 function love.update(dt)

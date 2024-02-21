@@ -1,15 +1,19 @@
 {
-	"identifier": "Level_3",
+	"identifier": "Level_1_3",
 	"uniqueIdentifer": "c6fae930-b0a0-11ee-8b58-57a11491e397",
-	"x": 1600,
-	"y": 0,
+	"x": -1888,
+	"y": 928,
 	"width": 672,
 	"height": 640,
 	"bgColor": "#1A1C2C",
 	"neighbourLevels": [
 		{
 			"levelIid": "0f5b16e0-b0a0-11ee-8b58-5f7ece5f7444",
-			"dir": "w"
+			"dir": "s"
+		},
+		{
+			"levelIid": "603837e0-b0a0-11ee-8b58-6d34981b1d1e",
+			"dir": "n"
 		}
 	],
 	"customFields": {

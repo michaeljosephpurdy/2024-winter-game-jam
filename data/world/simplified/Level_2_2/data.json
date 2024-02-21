@@ -1,8 +1,8 @@
 {
-	"identifier": "TEMPLATE",
-	"uniqueIdentifer": "b7fd96e0-b0a0-11ee-8b58-b1ee0c7452ac",
-	"x": -1088,
-	"y": 352,
+	"identifier": "Level_2_2",
+	"uniqueIdentifer": "fde0df30-b0a0-11ee-a65e-873eac7af101",
+	"x": 3424,
+	"y": 64,
 	"width": 640,
 	"height": 640,
 	"bgColor": "#1A1C2C",
@@ -17,7 +17,7 @@
 		"Player_Spawn": [
 			{
 				"id": "Player_Spawn",
-				"iid": "b7fdbdf0-b0a0-11ee-8b58-850cded5aba2",
+				"iid": "fde0df32-b0a0-11ee-a65e-b74a915c765c",
 				"layer": "Entities",
 				"x": 256,
 				"y": 352,
@@ -30,7 +30,7 @@
 		"Altar": [
 			{
 				"id": "Altar",
-				"iid": "b7fdbdf1-b0a0-11ee-8b58-ab3cbd694b2a",
+				"iid": "fde0df33-b0a0-11ee-a65e-5df67fbde404",
 				"layer": "Entities",
 				"x": 320,
 				"y": 352,
@@ -43,7 +43,7 @@
 		"Exit": [
 			{
 				"id": "Exit",
-				"iid": "b7fdbdf2-b0a0-11ee-8b58-e1935f375568",
+				"iid": "fde0df34-b0a0-11ee-a65e-71eacd96b55b",
 				"layer": "Entities",
 				"x": 288,
 				"y": 480,
@@ -58,7 +58,7 @@
 		"Animal": [
 			{
 				"id": "Animal",
-				"iid": "b7fdbdf3-b0a0-11ee-8b58-19be30382556",
+				"iid": "fde0df35-b0a0-11ee-a65e-c101761f8989",
 				"layer": "Entities",
 				"x": 288,
 				"y": 320,

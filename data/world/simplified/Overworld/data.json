@@ -6,16 +6,7 @@
 	"width": 864,
 	"height": 1312,
 	"bgColor": "#1A1C2C",
-	"neighbourLevels": [
-		{
-			"levelIid": "71c32692-b0a0-11ee-8b58-9544504138ba",
-			"dir": "n"
-		},
-		{
-			"levelIid": "603837e0-b0a0-11ee-8b58-6d34981b1d1e",
-			"dir": "n"
-		}
-	],
+	"neighbourLevels": [],
 	"customFields": {
 		"no_killing": true
 	},
@@ -47,7 +38,7 @@
 				"height": 32,
 				"color": 39321,
 				"customFields": {
-					"to_level": "Level_0",
+					"to_level": "Level_1_1",
 					"active": 2
 				}
 			},
@@ -61,7 +52,7 @@
 				"height": 32,
 				"color": 39321,
 				"customFields": {
-					"to_level": "Level_1",
+					"to_level": "Level_1_2",
 					"active": 3
 				}
 			},
@@ -75,7 +66,7 @@
 				"height": 32,
 				"color": 39321,
 				"customFields": {
-					"to_level": "Level_2",
+					"to_level": "Level_1_4",
 					"active": 6
 				}
 			},
@@ -89,8 +80,64 @@
 				"height": 32,
 				"color": 39321,
 				"customFields": {
-					"to_level": "Level_3",
+					"to_level": "Level_1_3",
 					"active": 5
+				}
+			},
+			{
+				"id": "Cross",
+				"iid": "1c4e54c0-b0a0-11ee-a65e-778019d1caae",
+				"layer": "Entities",
+				"x": 640,
+				"y": 128,
+				"width": 32,
+				"height": 32,
+				"color": 39321,
+				"customFields": {
+					"to_level": "Level_2_2",
+					"active": 0
+				}
+			},
+			{
+				"id": "Cross",
+				"iid": "1d98fd30-b0a0-11ee-a65e-012a92ef4d30",
+				"layer": "Entities",
+				"x": 768,
+				"y": 128,
+				"width": 32,
+				"height": 32,
+				"color": 39321,
+				"customFields": {
+					"to_level": "Level_2_3",
+					"active": 0
+				}
+			},
+			{
+				"id": "Cross",
+				"iid": "1e4590e0-b0a0-11ee-a65e-435f3a199db2",
+				"layer": "Entities",
+				"x": 704,
+				"y": 64,
+				"width": 32,
+				"height": 32,
+				"color": 39321,
+				"customFields": {
+					"to_level": "Level_2_4",
+					"active": 0
+				}
+			},
+			{
+				"id": "Cross",
+				"iid": "1f70ca70-b0a0-11ee-a65e-87a028b8d30f",
+				"layer": "Entities",
+				"x": 704,
+				"y": 192,
+				"width": 32,
+				"height": 32,
+				"color": 39321,
+				"customFields": {
+					"to_level": "Level_2_1",
+					"active": 0
 				}
 			}
 		],

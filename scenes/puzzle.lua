@@ -11,7 +11,7 @@ function PuzzleScene:initialize(level_id, from)
 	self.try_again_text = Text:new({ text = "Atone for your\nsins", x = GAME_WIDTH / 2, y = GAME_HEIGHT / 2 })
 	self.won_text = Text:new({ text = "", x = GAME_WIDTH / 2, y = GAME_HEIGHT / 2 })
 	self.is_overworld = level_id == "Overworld"
-	self.camera = Camera:new()
+	self.camera = Camera:new(4, 4)
 	self.tiles = {}
 	self.upper_layer = {}
 	self.altars = {}

@@ -11,7 +11,9 @@ local function clamp(low, n, high)
 	return math.min(math.max(n, low), high)
 end
 
-function Camera:initialize()
+function Camera:initialize(horizontal_speed, vertical_speed)
+	self.x_speed = horizontal_speed
+	self.y_speed = vertical_speed
 	self.levels = {}
 	self.focal_point = 0
 	self.position = { x = 0, y = 0 }
@@ -45,7 +47,7 @@ function Camera:update(e, dt)
 	elseif e.x + camera_offset <= level.left_boundary + GAME_WIDTH / 2 then
 		self.position.x = level.left_boundary
 	end
-	self.position.x = lerp(self.old_position.x, self.position.x, 4 * dt)
+	self.position.x = lerp(self.old_position.x, self.position.x, self.x_speed * dt)
 	if e.y >= level.bot_boundary - GAME_HEIGHT / 2 then
 		self.position.y = level.bot_boundary - GAME_HEIGHT
 	elseif e.y <= level.top_boundary + GAME_HEIGHT / 2 then
@@ -57,7 +59,7 @@ function Camera:update(e, dt)
 	if level.height <= GAME_HEIGHT then
 		self.position.y = level.top_boundary
 	end
-	self.position.y = lerp(self.old_position.y, self.position.y, 25 * dt)
+	self.position.y = lerp(self.old_position.y, self.position.y, self.y_speed * dt)
 end
 
 function Camera:apply()
