@@ -2,8 +2,8 @@ Animal = class("Animal", BaseEntity)
 Animal:include(Collides)
 Animal:include(Killable)
 Animal:include(Rewindable)
-Animal.static._alive_image = love.graphics.newImage("assets/cow-alive.png")
-Animal.static._dead_image = love.graphics.newImage("assets/cow-dead.png")
+Animal.static._alive_image = love.graphics.newImage("assets/animal-alive.png")
+Animal.static._dead_image = love.graphics.newImage("assets/animal-dead.png")
 local STATE = {
 	ALIVE = "ALIVE",
 	DEAD = "DEAD",
