@@ -3,6 +3,7 @@ Player.static._alive_image = love.graphics.newImage("assets/player-alive.png")
 Player.static._dead_image = love.graphics.newImage("assets/player-dead.png")
 Player.static._target_image = love.graphics.newImage("assets/target.png")
 Player.static._kill_spotlight = love.graphics.newImage("assets/spotlight-kill.png")
+Player.static._dead_spotlight = love.graphics.newImage("assets/spotlight-dead.png")
 Player.static._atone_spotlight = love.graphics.newImage("assets/spotlight-atone.png")
 Player.static._spotlight_offset = 320 - 16
 Player:include(Collides)
@@ -16,8 +17,6 @@ local STATE = {
 
 function Player:initialize(props)
 	BaseEntity.initialize(self, props)
-	self.select_sacrific_text = Text:new({ text = "select a sacrific", x = self.x, y = self.y })
-	self.you_must_atone_text = Text:new({ text = "atone for your sins", x = self.x, y = self.y })
 	self.dx = 0
 	self.dy = 0
 	self.target_x = 0
@@ -124,11 +123,10 @@ function Player:update(dt)
 		return
 	end
 	self:move(self.dx, self.dy)
+	if self.x == self.old_x and self.y == self.old_y then
+		return
+	end
 	self.parent:tick()
-	self.select_sacrific_text.x = self.x
-	self.select_sacrific_text.y = self.y + 64
-	self.you_must_atone_text.x = self.x
-	self.you_must_atone_text.y = self.x + 64
 end
 
 function Player:sacrificing()
@@ -136,32 +134,29 @@ function Player:sacrificing()
 end
 
 function Player:must_atone()
-	return self.state == STATE.DEAD and not self.is_on_altar
+	return self.state == STATE.DEAD and (not self.is_on_altar or not self.parent:all_sacrifices_made())
 end
 
 function Player:draw()
 	BaseEntity.draw(self)
-	if self.state == STATE.DEAD then
+	if self:must_atone() then
 		love.graphics.draw(Player._dead_image, self.x, self.y)
 		love.graphics.draw(
 			Player._atone_spotlight,
 			self.x - Player._spotlight_offset,
 			self.y - Player._spotlight_offset
 		)
+	elseif self.state == STATE.DEAD then
+		love.graphics.draw(Player._dead_image, self.x, self.y)
+		love.graphics.draw(Player._dead_spotlight, self.x - Player._spotlight_offset, self.y - Player._spotlight_offset)
 	else
 		love.graphics.draw(Player._alive_image, self.x, self.y)
 	end
-	if self:must_atone() then
-		self.you_must_atone_text:draw()
-	end
 	if self.state == STATE.KILL_MODE then
-		self.select_sacrific_text:draw()
 		love.graphics.draw(Player._target_image, self.target_x, self.target_y)
 		love.graphics.draw(Player._kill_spotlight, self.x - Player._spotlight_offset, self.y - Player._spotlight_offset)
 	end
 	if DEBUG then
 		love.graphics.print(self.state, self.x - 10, self.y + 40)
-	end
-	if self:must_atone() then
 	end
 end

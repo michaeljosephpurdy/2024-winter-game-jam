@@ -13,7 +13,7 @@
 		}
 	],
 	"customFields": {
-		"no_killing": false
+		"no_killing": true
 	},
 	"layers": [
 		"AutoLayer.png"
@@ -59,7 +59,7 @@
 				"height": 32,
 				"color": 2281250,
 				"customFields": {
-					"text": "all sins are\nforgiven by\natoning with\n    'z'"
+					"text": "all misteps\nare forgiven\nwith 'z'"
 				}
 			}
 		],

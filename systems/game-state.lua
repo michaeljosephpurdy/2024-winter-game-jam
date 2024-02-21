@@ -13,6 +13,10 @@ function GameState:transition(new_scene)
 	self:calculate_offerings()
 end
 
+function GameState:set_steps(steps)
+	self.steps = steps
+end
+
 function GameState:save_progress(level_id, data)
 	self.progress[level_id] = {
 		played = true,
@@ -46,5 +50,6 @@ function GameState:draw()
 	if self.offerings > 0 then
 		love.graphics.print("offerings: " .. self.offerings, 20, 20)
 	end
+	love.graphics.print("steps: " .. self.steps, 20, 36)
 	love.graphics.pop()
 end

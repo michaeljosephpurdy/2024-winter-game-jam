@@ -16,7 +16,7 @@ function PuzzleScene:initialize(level_id, from)
 	self.upper_layer = {}
 	self.altars = {}
 	self.crosses = {}
-	self.current_turn = 1
+	self.current_turn = 0
 	self.sacrifices = 0
 	function on_image(payload)
 		self.bg = Image:new(payload)
@@ -88,6 +88,7 @@ function PuzzleScene:initialize(level_id, from)
 	print("player x: " .. self.player.x .. " y: " .. self.player.y)
 	print("#entities: " .. #self.entities)
 	self.camera:update(self.player, 0)
+	GAME_STATE:set_steps(self.current_turn)
 end
 
 function PuzzleScene:on_each_entity(fn)
@@ -98,14 +99,15 @@ end
 
 function PuzzleScene:rewind()
 	self.current_turn = self.current_turn - 1
-	if self.current_turn < 1 then
-		self.current_turn = 1
+	if self.current_turn < 0 then
+		self.current_turn = 0
 	end
 	self:on_each_entity(function(entity)
 		if entity.rewind then
 			entity:rewind(self.current_turn)
 		end
 	end)
+	GAME_STATE:set_steps(self.current_turn)
 end
 
 function PuzzleScene:tick()
@@ -117,6 +119,7 @@ function PuzzleScene:tick()
 		end
 	end)
 	self.current_turn = self.current_turn + 1
+	GAME_STATE:set_steps(self.current_turn)
 end
 
 function PuzzleScene:update(dt)
@@ -158,6 +161,10 @@ function PuzzleScene:update(dt)
 	self.camera:update(self.player, dt)
 end
 
+function PuzzleScene:all_sacrifices_made()
+	return self.state == STATE.OVER
+end
+
 function PuzzleScene:draw()
 	BaseScene.draw(self)
 	self.camera:apply()
@@ -172,8 +179,4 @@ function PuzzleScene:draw()
 		entity:draw()
 	end
 	self.player:draw()
-	-- overlays
-	if self.player:sacrificing() then
-	elseif self.player:must_atone() then
-	end
 end
