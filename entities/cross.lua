@@ -12,25 +12,26 @@ function Cross:initialize(props)
 	self.active = 0
 	BaseEntity.initialize(self, props)
 	self.is_passable = true
-	self.state = STATE.INACTIVE
-	self.inactive_text = Text:new({ text = self.active, x = self.x - 16, y = self.y + 32 })
 	print("checking if completed " .. self.to_level)
 	if GAME_STATE:is_completed(self.to_level) then
 		print("setting " .. self.to_level .. " as completed")
 		self.state = STATE.COMPLETED
 	end
+	PubSub.subscribe("calculated_offerings", function()
+		self.state = STATE.INACTIVE
+		if GAME_STATE.offerings >= self.active then
+			self.state = STATE.ACTIVE
+		end
+		if self.state == STATE.INACTIVE then
+			local text = GAME_STATE.offerings .. "/" .. self.active
+			self.inactive_text = Text:new({ text = text, x = self.x, y = self.y + 32 })
+		end
+	end)
 end
 
 function Cross:update()
 	if self.state == STATE.COMPETED then
 		return
-	end
-	self.state = STATE.INACTIVE
-	if GAME_STATE.offerings >= self.active then
-		self.state = STATE.ACTIVE
-	end
-	if self.state == STATE.INACTIVE then
-		self.inactive_text.text = GAME_STATE.offerings .. "/" .. self.active
 	end
 end
 

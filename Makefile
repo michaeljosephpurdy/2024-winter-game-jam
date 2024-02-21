@@ -6,6 +6,8 @@ images:
 	aseprite -b assets/exit.aseprite --save-as assets/exit.png
 	aseprite -b assets/altar.aseprite --save-as assets/altar.png
 	aseprite -b assets/target.aseprite --save-as assets/target.png
+	aseprite -b --layer "kill" assets/spotlight.aseprite --save-as assets/spotlight-kill.png
+	aseprite -b --layer "atone" assets/spotlight.aseprite --save-as assets/spotlight-atone.png
 	aseprite -b --layer "passable" assets/rock.aseprite --save-as assets/rock-passable.png
 	aseprite -b --layer "movable" assets/rock.aseprite --save-as assets/rock-movable.png
 	aseprite -b --layer "alive" assets/cow.aseprite --save-as assets/cow-alive.png

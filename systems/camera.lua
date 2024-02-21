@@ -1,6 +1,9 @@
 Camera = class("Camera")
 
 local function lerp(a, b, t)
+	if t == 0 then
+		return b
+	end
 	return a + (b - a) * t
 end
 

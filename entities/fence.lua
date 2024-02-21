@@ -4,14 +4,16 @@ Fence.static._open_image = love.graphics.newImage("assets/fence-open.png")
 
 function Fence:initialize(props)
 	BaseEntity.initialize(self, props)
-	self.text = Text:new({ text = "you need\n" .. self.open .. " offerings", x = self.x, y = self.y })
+	PubSub.subscribe("calculated_offerings", function()
+		self.closed = self.open > GAME_STATE.offerings
+		self.is_passable = not self.closed
+		self.is_solid = self.closed
+		local text = GAME_STATE.offerings .. "/" .. self.open
+		self.text = Text:new({ text = text, x = self.x, y = self.y })
+	end)
 end
 
-function Fence:update()
-	self.closed = self.open > GAME_STATE.offerings
-	self.is_passable = not self.closed
-	self.is_solid = self.closed
-end
+function Fence:update() end
 
 function Fence:draw()
 	if self.closed then

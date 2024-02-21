@@ -24,14 +24,13 @@ function GameState:save_progress(level_id, data)
 end
 
 function GameState:calculate_offerings()
-	print("calculating offerings")
 	self.offerings = 0
 	for level_id, progress in pairs(self.progress) do
 		print(level_id)
 		print(progress.offerings)
 		self.offerings = self.offerings + progress.offerings
 	end
-	print("done")
+	PubSub.publish("calculated_offerings")
 end
 
 function GameState:is_completed(level_id)

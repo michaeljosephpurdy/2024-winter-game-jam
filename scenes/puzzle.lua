@@ -1,7 +1,13 @@
 PuzzleScene = class("PuzzleScene", BaseScene)
 
+local STATE = {
+	IN_PROGRESS = "IN_PROGRESS",
+	OVER = "OVER",
+}
 function PuzzleScene:initialize(level_id, from)
 	BaseScene.initialize(self)
+	self.level_id = level_id
+	self.from = from
 	self.try_again_text = Text:new({ text = "Atone for your\nsins", x = GAME_WIDTH / 2, y = GAME_HEIGHT / 2 })
 	self.won_text = Text:new({ text = "", x = GAME_WIDTH / 2, y = GAME_HEIGHT / 2 })
 	self.is_overworld = level_id == "Overworld"
@@ -73,14 +79,6 @@ function PuzzleScene:initialize(level_id, from)
 			GAME_STATE:transition(PuzzleScene:new(level_id, from))
 			return
 		end
-		if self.exit and not self.no_killing and self.over and (key == "x" or key == "l") then
-			GAME_STATE:save_progress(level_id, {
-				offerings = self.sacrifices,
-			})
-			PubSub:purge()
-			GAME_STATE:transition(PuzzleScene:new(self.exit.next_level, level_id))
-			return
-		end
 	end)
 	if self.player_start and self.player then
 		self.player.x = self.player_start.x
@@ -89,6 +87,7 @@ function PuzzleScene:initialize(level_id, from)
 	self.player.no_killing = self.no_killing
 	print("player x: " .. self.player.x .. " y: " .. self.player.y)
 	print("#entities: " .. #self.entities)
+	self.camera:update(self.player, 0)
 end
 
 function PuzzleScene:on_each_entity(fn)
@@ -121,6 +120,10 @@ function PuzzleScene:tick()
 end
 
 function PuzzleScene:update(dt)
+	if self.transition_coroutine then
+		coroutine.resume(self.transition_coroutine)
+		return
+	end
 	BaseScene.update(self)
 	self.sacrifices = 0
 	for _, entity in pairs(self.entities) do
@@ -129,13 +132,29 @@ function PuzzleScene:update(dt)
 	for _, altar in pairs(self.altars) do
 		for _, entity in pairs(self.entities) do
 			if altar.x == entity.x and altar.y == entity.y then
+				self.player.is_on_altar = true
 				if entity.is_dead and entity:is_dead() then
 					self.sacrifices = self.sacrifices + 1
 				end
 			end
 		end
 	end
-	self.over = self.sacrifices == #self.altars
+	if self.exit and not self.no_killing and self.sacrifices == #self.altars then
+		self.state = STATE.OVER
+		self.transition_coroutine = coroutine.create(function()
+			local time = 2
+			while time > 0 do
+				time = time - dt
+				print("yielding: " .. tostring(time))
+				coroutine.yield()
+			end
+			GAME_STATE:save_progress(self.level_id, {
+				offerings = self.sacrifices,
+			})
+			PubSub:purge()
+			GAME_STATE:transition(PuzzleScene:new(self.exit.next_level, self.level_id))
+		end)
+	end
 	self.camera:update(self.player, dt)
 end
 
@@ -153,4 +172,8 @@ function PuzzleScene:draw()
 		entity:draw()
 	end
 	self.player:draw()
+	-- overlays
+	if self.player:sacrificing() then
+	elseif self.player:must_atone() then
+	end
 end

@@ -28,39 +28,13 @@
 				"id": "Text",
 				"iid": "be185272-b0a0-11ee-8b58-8badb42bb99b",
 				"layer": "Entities",
-				"x": 640,
-				"y": 96,
+				"x": 448,
+				"y": 448,
 				"width": 32,
 				"height": 32,
 				"color": 2281250,
 				"customFields": {
-					"text": "You are not worthy..."
-				}
-			},
-			{
-				"id": "Text",
-				"iid": "dec97670-b0a0-11ee-8b58-894d697345e4",
-				"layer": "Entities",
-				"x": 640,
-				"y": 256,
-				"width": 32,
-				"height": 32,
-				"color": 2281250,
-				"customFields": {
-					"text": "to enter all areas of my garden..."
-				}
-			},
-			{
-				"id": "Text",
-				"iid": "e8eb26d0-b0a0-11ee-8b58-91c01e37316f",
-				"layer": "Entities",
-				"x": 640,
-				"y": 416,
-				"width": 32,
-				"height": 32,
-				"color": 2281250,
-				"customFields": {
-					"text": "you will need to offer me more..."
+					"text": "You are not worthy to enter all areas of my garden..."
 				}
 			}
 		],
@@ -69,8 +43,8 @@
 				"id": "Player_Spawn",
 				"iid": "be185274-b0a0-11ee-8b58-272e7bb4ecd9",
 				"layer": "Entities",
-				"x": 128,
-				"y": 96,
+				"x": 96,
+				"y": 480,
 				"width": 32,
 				"height": 32,
 				"color": 0,
@@ -82,8 +56,8 @@
 				"id": "Cross",
 				"iid": "19bed8b0-b0a0-11ee-8b58-b5791237e9f2",
 				"layer": "Entities",
-				"x": 1152,
-				"y": 480,
+				"x": 1248,
+				"y": 352,
 				"width": 32,
 				"height": 32,
 				"color": 39321,
@@ -98,8 +72,8 @@
 				"id": "Fence",
 				"iid": "5436a680-b0a0-11ee-8b58-b1379654fb46",
 				"layer": "Entities",
-				"x": 256,
-				"y": 256,
+				"x": 960,
+				"y": 448,
 				"width": 32,
 				"height": 32,
 				"color": 4784274,
