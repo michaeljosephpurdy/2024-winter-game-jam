@@ -3,6 +3,9 @@ GameState = class("GameState")
 function GameState:initialize()
 	self.offerings = 0
 	self.progress = {}
+	self.r = 26 / 255
+	self.g = 28 / 255
+	self.b = 44 / 255
 end
 
 function GameState:transition(new_scene)
@@ -46,7 +49,7 @@ end
 function GameState:draw()
 	love.graphics.push()
 	love.graphics.origin()
-	love.graphics.setColor(0, 0, 0)
+	love.graphics.setColor(self.r, self.g, self.b)
 	if self.offerings > 0 then
 		love.graphics.print("offerings: " .. self.offerings, 20, 20)
 	end

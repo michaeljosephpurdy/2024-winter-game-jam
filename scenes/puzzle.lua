@@ -89,6 +89,7 @@ function PuzzleScene:initialize(level_id, from)
 	print("#entities: " .. #self.entities)
 	self.camera:update(self.player, 0)
 	GAME_STATE:set_steps(self.current_turn)
+	self.fade_in = 1
 end
 
 function PuzzleScene:on_each_entity(fn)
@@ -123,8 +124,14 @@ function PuzzleScene:tick()
 end
 
 function PuzzleScene:update(dt)
+	-- fade into the scene at start up
+	self.fade_in = self.fade_in - dt
+	if self.fade_in < 0 then
+		self.fade_in = 0
+	end
+	-- if we are transi
 	if self.transition_coroutine then
-		coroutine.resume(self.transition_coroutine)
+		coroutine.resume(self.transition_coroutine, dt)
 		return
 	end
 	BaseScene.update(self)
@@ -144,10 +151,10 @@ function PuzzleScene:update(dt)
 	end
 	if self.exit and not self.no_killing and self.sacrifices == #self.altars then
 		self.state = STATE.OVER
-		self.transition_coroutine = coroutine.create(function()
+		self.transition_coroutine = coroutine.create(function(elapsed)
 			local time = 2
 			while time > 0 do
-				time = time - dt
+				time = time - elapsed
 				print("yielding: " .. tostring(time))
 				coroutine.yield()
 			end
@@ -179,4 +186,14 @@ function PuzzleScene:draw()
 		entity:draw()
 	end
 	self.player:draw()
+	if self.fade_in > 0 then
+		love.graphics.push()
+		love.graphics.origin()
+		local r = 26 / 255
+		local g = 28 / 255
+		local b = 44 / 255
+		love.graphics.setColor(r, g, b, self.fade_in)
+		love.graphics.rectangle("fill", 0, 0, GAME_WIDTH, GAME_HEIGHT)
+		love.graphics.pop()
+	end
 end
