@@ -118,8 +118,8 @@
 				"id": "Fence",
 				"iid": "a76950f0-b0a0-11ee-8b58-3d0de9955aca",
 				"layer": "Entities",
-				"x": 768,
-				"y": 1024,
+				"x": 736,
+				"y": 1120,
 				"width": 32,
 				"height": 32,
 				"color": 4784274,
@@ -132,7 +132,7 @@
 				"iid": "e45105e0-b0a0-11ee-8b58-6d2024c589a6",
 				"layer": "Entities",
 				"x": 192,
-				"y": 896,
+				"y": 768,
 				"width": 32,
 				"height": 32,
 				"color": 4784274,
@@ -150,7 +150,7 @@
 				"height": 32,
 				"color": 4784274,
 				"customFields": {
-					"open": 20
+					"open": 7
 				}
 			}
 		],
@@ -208,7 +208,7 @@
 				"iid": "8997a0a0-b0a0-11ee-a65e-01b48a35aff7",
 				"layer": "Entities",
 				"x": 64,
-				"y": 1056,
+				"y": 928,
 				"width": 32,
 				"height": 32,
 				"color": 16777215,
