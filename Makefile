@@ -20,6 +20,7 @@ images:
 	aseprite -b --layer "completed" assets/enter.aseprite --save-as assets/enter-completed.png
 	aseprite -b --layer "open" assets/fence.aseprite --save-as assets/fence-open.png
 	aseprite -b --layer "closed" assets/fence.aseprite --save-as assets/fence-closed.png
+	aseprite -b assets/itch.aseprite --save-as assets/cover.png
 
 
 serve:
