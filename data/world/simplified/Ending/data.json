@@ -1,0 +1,46 @@
+{
+	"identifier": "Ending",
+	"uniqueIdentifer": "9c51a240-b0a0-11ee-a65e-0bfe2c472519",
+	"x": 320,
+	"y": 2112,
+	"width": 288,
+	"height": 256,
+	"bgColor": "#1A1C2C",
+	"neighbourLevels": [],
+	"customFields": {
+		"no_killing": true
+	},
+	"layers": [
+		"AutoLayer.png"
+	],
+	"entities": {
+		"Player_Spawn": [
+			{
+				"id": "Player_Spawn",
+				"iid": "b75e87b0-b0a0-11ee-a65e-a73ad87b1054",
+				"layer": "Entities",
+				"x": 128,
+				"y": 128,
+				"width": 32,
+				"height": 32,
+				"color": 0,
+				"customFields" : {}
+			}
+		],
+		"Text": [
+			{
+				"id": "Text",
+				"iid": "b9c352b0-b0a0-11ee-a65e-ebb437b1de90",
+				"layer": "Entities",
+				"x": 128,
+				"y": 64,
+				"width": 32,
+				"height": 32,
+				"color": 2281250,
+				"customFields": {
+					"text": " thank you\nfor playing"
+				}
+			}
+		]
+	}
+}

@@ -1,9 +1,9 @@
 {
 	"identifier": "Level_2_2",
 	"uniqueIdentifer": "fde0df30-b0a0-11ee-a65e-873eac7af101",
-	"x": 3424,
+	"x": 2048,
 	"y": 64,
-	"width": 640,
+	"width": 928,
 	"height": 640,
 	"bgColor": "#1A1C2C",
 	"neighbourLevels": [],
@@ -19,8 +19,8 @@
 				"id": "Player_Spawn",
 				"iid": "fde0df32-b0a0-11ee-a65e-b74a915c765c",
 				"layer": "Entities",
-				"x": 256,
-				"y": 352,
+				"x": 352,
+				"y": 256,
 				"width": 32,
 				"height": 32,
 				"color": 0,
@@ -32,8 +32,30 @@
 				"id": "Altar",
 				"iid": "fde0df33-b0a0-11ee-a65e-5df67fbde404",
 				"layer": "Entities",
-				"x": 320,
-				"y": 352,
+				"x": 384,
+				"y": 256,
+				"width": 32,
+				"height": 32,
+				"color": 18761,
+				"customFields" : {}
+			},
+			{
+				"id": "Altar",
+				"iid": "9cdae160-b0a0-11ee-a65e-db66e109b28e",
+				"layer": "Entities",
+				"x": 448,
+				"y": 256,
+				"width": 32,
+				"height": 32,
+				"color": 18761,
+				"customFields" : {}
+			},
+			{
+				"id": "Altar",
+				"iid": "9e3c6d30-b0a0-11ee-a65e-659998b29020",
+				"layer": "Entities",
+				"x": 416,
+				"y": 256,
 				"width": 32,
 				"height": 32,
 				"color": 18761,
@@ -45,8 +67,8 @@
 				"id": "Exit",
 				"iid": "fde0df34-b0a0-11ee-a65e-71eacd96b55b",
 				"layer": "Entities",
-				"x": 288,
-				"y": 480,
+				"x": 32,
+				"y": 32,
 				"width": 32,
 				"height": 32,
 				"color": 2434341,
@@ -55,16 +77,133 @@
 				}
 			}
 		],
+		"Cross": [
+			{
+				"id": "Cross",
+				"iid": "0055de90-b0a0-11ee-a65e-7138539bdc92",
+				"layer": "Entities",
+				"x": 320,
+				"y": 256,
+				"width": 32,
+				"height": 32,
+				"color": 39321,
+				"customFields": {
+					"to_level": "Overworld",
+					"active": 0
+				}
+			}
+		],
 		"Animal": [
 			{
 				"id": "Animal",
-				"iid": "fde0df35-b0a0-11ee-a65e-c101761f8989",
+				"iid": "ca0672d0-b0a0-11ee-a65e-516d9c31e770",
 				"layer": "Entities",
-				"x": 288,
-				"y": 320,
+				"x": 704,
+				"y": 352,
 				"width": 32,
 				"height": 32,
 				"color": 16777215,
+				"customFields" : {}
+			},
+			{
+				"id": "Animal",
+				"iid": "cb41b1f0-b0a0-11ee-a65e-6f9b15443cca",
+				"layer": "Entities",
+				"x": 704,
+				"y": 160,
+				"width": 32,
+				"height": 32,
+				"color": 16777215,
+				"customFields" : {}
+			}
+		],
+		"Rock": [
+			{
+				"id": "Rock",
+				"iid": "f7743d60-b0a0-11ee-a65e-035290531a03",
+				"layer": "Entities",
+				"x": 608,
+				"y": 256,
+				"width": 32,
+				"height": 32,
+				"color": 28123,
+				"customFields" : {}
+			},
+			{
+				"id": "Rock",
+				"iid": "fed17690-b0a0-11ee-a65e-f7c0248550f7",
+				"layer": "Entities",
+				"x": 672,
+				"y": 288,
+				"width": 32,
+				"height": 32,
+				"color": 28123,
+				"customFields" : {}
+			},
+			{
+				"id": "Rock",
+				"iid": "ff621dd0-b0a0-11ee-a65e-d360f59a596b",
+				"layer": "Entities",
+				"x": 704,
+				"y": 320,
+				"width": 32,
+				"height": 32,
+				"color": 28123,
+				"customFields" : {}
+			},
+			{
+				"id": "Rock",
+				"iid": "ffd52af0-b0a0-11ee-a65e-c3524ff0b79a",
+				"layer": "Entities",
+				"x": 704,
+				"y": 192,
+				"width": 32,
+				"height": 32,
+				"color": 28123,
+				"customFields" : {}
+			},
+			{
+				"id": "Rock",
+				"iid": "01fec1b0-b0a0-11ee-a65e-9fb93af9d18e",
+				"layer": "Entities",
+				"x": 704,
+				"y": 256,
+				"width": 32,
+				"height": 32,
+				"color": 28123,
+				"customFields" : {}
+			},
+			{
+				"id": "Rock",
+				"iid": "091be4a0-b0a0-11ee-a65e-0714bc28e45d",
+				"layer": "Entities",
+				"x": 672,
+				"y": 352,
+				"width": 32,
+				"height": 32,
+				"color": 28123,
+				"customFields" : {}
+			},
+			{
+				"id": "Rock",
+				"iid": "42ebd9b0-b0a0-11ee-a65e-f576de8518bc",
+				"layer": "Entities",
+				"x": 672,
+				"y": 224,
+				"width": 32,
+				"height": 32,
+				"color": 28123,
+				"customFields" : {}
+			},
+			{
+				"id": "Rock",
+				"iid": "76ee3640-b0a0-11ee-a65e-0bf34faad5e6",
+				"layer": "Entities",
+				"x": 672,
+				"y": 256,
+				"width": 32,
+				"height": 32,
+				"color": 28123,
 				"customFields" : {}
 			}
 		]
