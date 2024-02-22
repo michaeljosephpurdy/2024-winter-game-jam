@@ -1,0 +1,143 @@
+{
+	"identifier": "Level_2_3",
+	"uniqueIdentifer": "e825ccc3-b0a0-11ee-a65e-491a0928ca77",
+	"x": 1344,
+	"y": 864,
+	"width": 640,
+	"height": 640,
+	"bgColor": "#1A1C2C",
+	"neighbourLevels": [],
+	"customFields": {
+		"no_killing": false
+	},
+	"layers": [
+		"AutoLayer.png"
+	],
+	"entities": {
+		"Player_Spawn": [
+			{
+				"id": "Player_Spawn",
+				"iid": "e825f3d1-b0a0-11ee-a65e-73a5c28ffabd",
+				"layer": "Entities",
+				"x": 224,
+				"y": 288,
+				"width": 32,
+				"height": 32,
+				"color": 0,
+				"customFields" : {}
+			}
+		],
+		"Altar": [
+			{
+				"id": "Altar",
+				"iid": "e825f3d2-b0a0-11ee-a65e-15b1fea9d170",
+				"layer": "Entities",
+				"x": 288,
+				"y": 160,
+				"width": 32,
+				"height": 32,
+				"color": 18761,
+				"customFields" : {}
+			},
+			{
+				"id": "Altar",
+				"iid": "134b7c10-b0a0-11ee-a65e-f9b8b00276f9",
+				"layer": "Entities",
+				"x": 288,
+				"y": 192,
+				"width": 32,
+				"height": 32,
+				"color": 18761,
+				"customFields" : {}
+			},
+			{
+				"id": "Altar",
+				"iid": "13a44a70-b0a0-11ee-a65e-a1f095a2dda9",
+				"layer": "Entities",
+				"x": 288,
+				"y": 224,
+				"width": 32,
+				"height": 32,
+				"color": 18761,
+				"customFields" : {}
+			},
+			{
+				"id": "Altar",
+				"iid": "13f354d0-b0a0-11ee-a65e-9d5f4f4bab04",
+				"layer": "Entities",
+				"x": 320,
+				"y": 224,
+				"width": 32,
+				"height": 32,
+				"color": 18761,
+				"customFields" : {}
+			}
+		],
+		"Exit": [
+			{
+				"id": "Exit",
+				"iid": "e825f3d3-b0a0-11ee-a65e-eddea836e86b",
+				"layer": "Entities",
+				"x": 288,
+				"y": 480,
+				"width": 32,
+				"height": 32,
+				"color": 2434341,
+				"customFields": {
+					"next_level": "Overworld"
+				}
+			}
+		],
+		"Animal": [
+			{
+				"id": "Animal",
+				"iid": "e825f3d4-b0a0-11ee-a65e-e5fb7d38963a",
+				"layer": "Entities",
+				"x": 288,
+				"y": 96,
+				"width": 32,
+				"height": 32,
+				"color": 16777215,
+				"customFields" : {}
+			},
+			{
+				"id": "Animal",
+				"iid": "46654d60-b0a0-11ee-a65e-31cedf3c8c71",
+				"layer": "Entities",
+				"x": 288,
+				"y": 320,
+				"width": 32,
+				"height": 32,
+				"color": 16777215,
+				"customFields" : {}
+			},
+			{
+				"id": "Animal",
+				"iid": "47822f10-b0a0-11ee-a65e-c775c596f154",
+				"layer": "Entities",
+				"x": 416,
+				"y": 288,
+				"width": 32,
+				"height": 32,
+				"color": 16777215,
+				"customFields" : {}
+			}
+		],
+		"Cross": [
+			{
+				"id": "Cross",
+				"iid": "e825f3d5-b0a0-11ee-a65e-e14a83f2ac32",
+				"layer": "Entities",
+				"x": 224,
+				"y": 288,
+				"width": 32,
+				"height": 32,
+				"color": 39321,
+				"customFields": {
+					"to_level": "Overworld",
+					"active": 0
+				}
+			}
+		]
+	}
+}
