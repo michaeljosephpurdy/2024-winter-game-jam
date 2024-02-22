@@ -1,0 +1,209 @@
+{
+	"identifier": "Level_2_4",
+	"uniqueIdentifer": "c0da3873-b0a0-11ee-a65e-7b79b047085c",
+	"x": 2208,
+	"y": 928,
+	"width": 672,
+	"height": 384,
+	"bgColor": "#1A1C2C",
+	"neighbourLevels": [],
+	"customFields": {
+		"no_killing": false
+	},
+	"layers": [
+		"AutoLayer.png"
+	],
+	"entities": {
+		"Player_Spawn": [
+			{
+				"id": "Player_Spawn",
+				"iid": "c0da5f81-b0a0-11ee-a65e-511f89cf534e",
+				"layer": "Entities",
+				"x": 352,
+				"y": 256,
+				"width": 32,
+				"height": 32,
+				"color": 0,
+				"customFields" : {}
+			}
+		],
+		"Altar": [
+			{
+				"id": "Altar",
+				"iid": "c0da5f82-b0a0-11ee-a65e-3929c1e9cb42",
+				"layer": "Entities",
+				"x": 608,
+				"y": 192,
+				"width": 32,
+				"height": 32,
+				"color": 18761,
+				"customFields" : {}
+			},
+			{
+				"id": "Altar",
+				"iid": "8a797cb0-b0a0-11ee-a65e-bfabedabad9e",
+				"layer": "Entities",
+				"x": 608,
+				"y": 224,
+				"width": 32,
+				"height": 32,
+				"color": 18761,
+				"customFields" : {}
+			},
+			{
+				"id": "Altar",
+				"iid": "8acfda10-b0a0-11ee-a65e-ff8b74aa07d9",
+				"layer": "Entities",
+				"x": 608,
+				"y": 256,
+				"width": 32,
+				"height": 32,
+				"color": 18761,
+				"customFields" : {}
+			},
+			{
+				"id": "Altar",
+				"iid": "8b0a23f0-b0a0-11ee-a65e-6bbd82e2ac4d",
+				"layer": "Entities",
+				"x": 576,
+				"y": 256,
+				"width": 32,
+				"height": 32,
+				"color": 18761,
+				"customFields" : {}
+			},
+			{
+				"id": "Altar",
+				"iid": "8b4446c0-b0a0-11ee-a65e-93ed5c32f61c",
+				"layer": "Entities",
+				"x": 576,
+				"y": 224,
+				"width": 32,
+				"height": 32,
+				"color": 18761,
+				"customFields" : {}
+			},
+			{
+				"id": "Altar",
+				"iid": "8b7a23d0-b0a0-11ee-a65e-cd164d30e55c",
+				"layer": "Entities",
+				"x": 576,
+				"y": 192,
+				"width": 32,
+				"height": 32,
+				"color": 18761,
+				"customFields" : {}
+			},
+			{
+				"id": "Altar",
+				"iid": "bd9597f0-b0a0-11ee-a65e-694b4a2f8351",
+				"layer": "Entities",
+				"x": 544,
+				"y": 224,
+				"width": 32,
+				"height": 32,
+				"color": 18761,
+				"customFields" : {}
+			}
+		],
+		"Exit": [
+			{
+				"id": "Exit",
+				"iid": "c0da5f83-b0a0-11ee-a65e-c75808167fe3",
+				"layer": "Entities",
+				"x": 288,
+				"y": 96,
+				"width": 32,
+				"height": 32,
+				"color": 2434341,
+				"customFields": {
+					"next_level": "Overworld"
+				}
+			}
+		],
+		"Cross": [
+			{
+				"id": "Cross",
+				"iid": "c0da5f85-b0a0-11ee-a65e-f718d56cab5d",
+				"layer": "Entities",
+				"x": 352,
+				"y": 192,
+				"width": 32,
+				"height": 32,
+				"color": 39321,
+				"customFields": {
+					"to_level": "Overworld",
+					"active": 0
+				}
+			}
+		],
+		"Animal": [
+			{
+				"id": "Animal",
+				"iid": "30bf5d20-b0a0-11ee-a65e-93dab471ab75",
+				"layer": "Entities",
+				"x": 192,
+				"y": 224,
+				"width": 32,
+				"height": 32,
+				"color": 16777215,
+				"customFields" : {}
+			},
+			{
+				"id": "Animal",
+				"iid": "c55d2bb0-b0a0-11ee-a65e-cb5dc7103a92",
+				"layer": "Entities",
+				"x": 96,
+				"y": 224,
+				"width": 32,
+				"height": 32,
+				"color": 16777215,
+				"customFields" : {}
+			},
+			{
+				"id": "Animal",
+				"iid": "c9acafb0-b0a0-11ee-a65e-2118bccfdece",
+				"layer": "Entities",
+				"x": 192,
+				"y": 128,
+				"width": 32,
+				"height": 32,
+				"color": 16777215,
+				"customFields" : {}
+			},
+			{
+				"id": "Animal",
+				"iid": "cc58bce0-b0a0-11ee-a65e-c528ec6f5ae6",
+				"layer": "Entities",
+				"x": 256,
+				"y": 128,
+				"width": 32,
+				"height": 32,
+				"color": 16777215,
+				"customFields" : {}
+			},
+			{
+				"id": "Animal",
+				"iid": "ccb18b40-b0a0-11ee-a65e-17edfe5039e7",
+				"layer": "Entities",
+				"x": 224,
+				"y": 96,
+				"width": 32,
+				"height": 32,
+				"color": 16777215,
+				"customFields" : {}
+			},
+			{
+				"id": "Animal",
+				"iid": "cedecb80-b0a0-11ee-a65e-07a81d62d684",
+				"layer": "Entities",
+				"x": 160,
+				"y": 64,
+				"width": 32,
+				"height": 32,
+				"color": 16777215,
+				"customFields" : {}
+			}
+		]
+	}
+}
