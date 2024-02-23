@@ -5949,7 +5949,7 @@
 						},
 						{
 							"__identifier": "Player_Spawn",
-							"__grid": [21,18],
+							"__grid": [21,19],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": { "tilesetUid": 49, "x": 80, "y": 240, "w": 16, "h": 16 },
@@ -5958,10 +5958,10 @@
 							"width": 32,
 							"height": 32,
 							"defUid": 47,
-							"px": [672,576],
+							"px": [672,608],
 							"fieldInstances": [],
 							"__worldX": -3808,
-							"__worldY": 2816
+							"__worldY": 2848
 						},
 						{
 							"__identifier": "Altar",
@@ -6740,7 +6740,7 @@
 						},
 						{
 							"__identifier": "Text",
-							"__grid": [12,6],
+							"__grid": [12,5],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": { "tilesetUid": 49, "x": 160, "y": 16, "w": 16, "h": 16 },
@@ -6749,13 +6749,13 @@
 							"width": 32,
 							"height": 32,
 							"defUid": 64,
-							"px": [384,192],
+							"px": [384,160],
 							"fieldInstances": [{ "__identifier": "text", "__type": "String", "__value": "thank you for playing", "__tile": null, "defUid": 65, "realEditorValues": [{
 								"id": "V_String",
 								"params": ["thank you for playing"]
 							}] }],
 							"__worldX": 448,
-							"__worldY": 2176
+							"__worldY": 2144
 						},
 						{
 							"__identifier": "Animal",
@@ -6839,7 +6839,7 @@
 						},
 						{
 							"__identifier": "Text",
-							"__grid": [12,15],
+							"__grid": [12,7],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": { "tilesetUid": 49, "x": 160, "y": 16, "w": 16, "h": 16 },
@@ -6848,17 +6848,17 @@
 							"width": 32,
 							"height": 32,
 							"defUid": 64,
-							"px": [384,480],
+							"px": [384,224],
 							"fieldInstances": [{ "__identifier": "text", "__type": "String", "__value": "by mike purdy", "__tile": null, "defUid": 65, "realEditorValues": [{
 								"id": "V_String",
 								"params": ["by mike purdy"]
 							}] }],
 							"__worldX": 448,
-							"__worldY": 2464
+							"__worldY": 2208
 						},
 						{
 							"__identifier": "Text",
-							"__grid": [12,14],
+							"__grid": [12,6],
 							"__pivot": [0,0],
 							"__tags": [],
 							"__tile": { "tilesetUid": 49, "x": 160, "y": 16, "w": 16, "h": 16 },
@@ -6867,13 +6867,13 @@
 							"width": 32,
 							"height": 32,
 							"defUid": 64,
-							"px": [384,448],
-							"fieldInstances": [{ "__identifier": "text", "__type": "String", "__value": "sacrifice and atone\n", "__tile": null, "defUid": 65, "realEditorValues": [{
+							"px": [384,192],
+							"fieldInstances": [{ "__identifier": "text", "__type": "String", "__value": "'sacrifice and atone'", "__tile": null, "defUid": 65, "realEditorValues": [{
 								"id": "V_String",
-								"params": ["sacrifice and atone\\n"]
+								"params": ["'sacrifice and atone'"]
 							}] }],
 							"__worldX": 448,
-							"__worldY": 2432
+							"__worldY": 2176
 						}
 					]
 				},

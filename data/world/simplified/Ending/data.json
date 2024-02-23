@@ -33,7 +33,7 @@
 				"iid": "b9c352b0-b0a0-11ee-a65e-ebb437b1de90",
 				"layer": "Entities",
 				"x": 384,
-				"y": 192,
+				"y": 160,
 				"width": 32,
 				"height": 32,
 				"color": 2281250,
@@ -46,7 +46,7 @@
 				"iid": "70a1b7a0-b0a0-11ee-a65e-273e1111c7c8",
 				"layer": "Entities",
 				"x": 384,
-				"y": 480,
+				"y": 224,
 				"width": 32,
 				"height": 32,
 				"color": 2281250,
@@ -59,12 +59,12 @@
 				"iid": "7f4dd220-b0a0-11ee-a65e-cf0903d22218",
 				"layer": "Entities",
 				"x": 384,
-				"y": 448,
+				"y": 192,
 				"width": 32,
 				"height": 32,
 				"color": 2281250,
 				"customFields": {
-					"text": "sacrifice and atone\n"
+					"text": "'sacrifice and atone'"
 				}
 			}
 		],
