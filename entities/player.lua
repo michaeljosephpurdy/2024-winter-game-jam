@@ -5,6 +5,9 @@ Player.static._target_image = love.graphics.newImage("assets/target.png")
 Player.static._kill_spotlight = love.graphics.newImage("assets/spotlight-kill.png")
 Player.static._dead_spotlight = love.graphics.newImage("assets/spotlight-dead.png")
 Player.static._atone_spotlight = love.graphics.newImage("assets/spotlight-atone.png")
+Player.static._move_sfx = Sfx:new("assets/move.wav")
+Player.static._rewind_sfx = Player.static._move_sfx
+Player.static._sacrifice_sfx = Sfx:new("assets/sacrifice.wav")
 Player.static._spotlight_offset = 320 - 16
 Player:include(Collides)
 Player:include(Rewindable)
@@ -83,6 +86,7 @@ function Player:input()
 			if self.state == STATE.KILL_MODE then
 				self.parent:on_each_entity(function(other)
 					if other.kill and other.x == self.target_x and other.y == self.target_y then
+						Player._sacrifice_sfx:play()
 						self.state = STATE.MOVING
 						other:kill()
 						return
@@ -110,7 +114,10 @@ function Player:input()
 				-- undo last move
 				self.dx = 0
 				self.dy = 0
-				self.parent:rewind()
+				local rewound = self.parent:rewind()
+				if rewound then
+					Player._rewind_sfx:play()
+				end
 			end
 		end
 	end
@@ -120,12 +127,15 @@ function Player:update(dt)
 	BaseEntity.update(self, dt)
 	self:input()
 	if self.dx == 0 and self.dy == 0 then
+		-- didn't move
 		return
 	end
 	self:move(self.dx, self.dy)
 	if self.x == self.old_x and self.y == self.old_y then
+		-- moved but was stopped
 		return
 	end
+	Player._move_sfx:play()
 	self.parent:tick()
 end
 

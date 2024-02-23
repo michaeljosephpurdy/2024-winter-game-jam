@@ -6,6 +6,8 @@ function GameState:initialize()
 	self.r = 26 / 255
 	self.g = 28 / 255
 	self.b = 44 / 255
+	self.steps_text = Text:new({ text = "steps:", x = 0, y = 270, left_align = true })
+	self.offerings_text = Text:new({ text = "offerings:", x = 0, y = 290, left_align = true })
 end
 
 function GameState:transition(new_scene)
@@ -18,6 +20,7 @@ end
 
 function GameState:set_steps(steps)
 	self.steps = steps
+	self.steps_text.text = "steps:" .. tostring(steps)
 end
 
 function GameState:save_progress(level_id, data)
@@ -37,6 +40,7 @@ function GameState:calculate_offerings()
 		print(progress.offerings)
 		self.offerings = self.offerings + progress.offerings
 	end
+	self.offerings_text.text = "offerings:" .. tostring(self.offerings)
 	PubSub.publish("calculated_offerings")
 end
 
@@ -51,8 +55,8 @@ function GameState:draw()
 	love.graphics.origin()
 	love.graphics.setColor(self.r, self.g, self.b)
 	if self.offerings > 0 then
-		love.graphics.print("offerings: " .. self.offerings, 20, 20)
+		self.offerings_text:draw()
 	end
-	love.graphics.print("steps: " .. self.steps, 20, 36)
+	self.steps_text:draw()
 	love.graphics.pop()
 end

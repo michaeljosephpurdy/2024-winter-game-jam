@@ -10,7 +10,7 @@ love_files = [
 ]
 
 [lovejs]
-title = "unknown"
+title = "Sacrifice and Atone"
 memory = "200000000"  # starting memory of the webpage (default is 20 MB)
 
 [macos]

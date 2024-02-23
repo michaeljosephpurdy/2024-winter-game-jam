@@ -9,7 +9,7 @@ function Fence:initialize(props)
 		self.is_passable = not self.closed
 		self.is_solid = self.closed
 		local text = GAME_STATE.offerings .. "/" .. self.open
-		self.text = Text:new({ text = text, x = self.x, y = self.y })
+		self.text = Text:new({ text = text, x = self.x, y = self.y, high_contrast = true })
 	end)
 end
 

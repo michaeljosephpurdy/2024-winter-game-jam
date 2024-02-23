@@ -14,6 +14,7 @@ require("plugins.pubsub")
 require("plugins.super-simple-ldtk")
 require("entities.base")
 require("scenes.base")
+require("entities.sfx")
 require("scenes.puzzle")
 require("entities.collider")
 require("entities.cross")
@@ -30,9 +31,10 @@ require("entities.rock")
 GAME_WIDTH = 320
 GAME_HEIGHT = 320
 DEBUG = false
---DEBUG_LEVEL = "Level_2_2"
+--DEBUG_LEVEL = "Tutorial_4"
 
 function love.load()
+	keys = {}
 	local windowWidth, windowHeight = love.window.getDesktopDimensions()
 	push:setupScreen(GAME_WIDTH, GAME_HEIGHT, windowWidth, windowHeight, {
 		fullscreen = false,
@@ -49,9 +51,20 @@ function love.load()
 	else
 		GAME_STATE:transition(PuzzleScene:new("Tutorial_0"))
 	end
+	background_music = love.audio.newSource("assets/background.wav", "stream")
+	background_music:setLooping(true)
+	background_music:setVolume(0.005)
+	background_music:play()
 end
 
 function love.update(dt)
+	for key, timer in pairs(keys) do
+		keys[key] = timer - dt
+		if timer < 0 then
+			PubSub.publish("keyrelease", key)
+			keys[key] = 0.125
+		end
+	end
 	GAME_STATE.current_scene:update(dt)
 end
 
@@ -63,15 +76,15 @@ function love.draw()
 end
 
 function love.keypressed(k)
+	keys[k] = 1
 	PubSub.publish("keypress", k)
 end
 
 function love.keyreleased(k)
+	keys[k] = nil
 	PubSub.publish("keyrelease", k)
 end
 
 function love.resize(w, h)
 	push:resize(w, h)
 end
-
-function transition(new_scene) end

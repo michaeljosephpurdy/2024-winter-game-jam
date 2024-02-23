@@ -5,10 +5,18 @@ Text.static._font:setFilter("nearest", "nearest")
 function Text:initialize(props)
 	BaseEntity.initialize(self, props)
 	self.offset = Text._font:getWidth(self.text) / 2
+	if props.left_align then
+		self.offset = 0
+	end
 	self.x = self.x + self.w / 2
-	self.r = 26 / 255
-	self.g = 28 / 255
-	self.b = 44 / 255
+	self.r = 255 / 255
+	self.g = 205 / 255
+	self.b = 117 / 255
+	if props.high_contrast then
+		self.r = 244 / 255
+		self.g = 244 / 255
+		self.b = 244 / 255
+	end
 end
 
 function Text:draw()

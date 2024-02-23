@@ -1,4 +1,6 @@
 PuzzleScene = class("PuzzleScene", BaseScene)
+PuzzleScene.static._cross_sfx = Sfx:new("assets/cross.wav")
+PuzzleScene.static._win_sfx = Sfx:new("assets/win.wav")
 
 local STATE = {
 	IN_PROGRESS = "IN_PROGRESS",
@@ -44,10 +46,7 @@ function PuzzleScene:initialize(level_id, from)
 		elseif payload.id == "Cross" then
 			local cross = Cross:new(payload)
 			table.insert(self.entities, cross)
-			print("cross " .. cross.to_level)
-			print("cross x: " .. cross.x .. " y: " .. cross.y)
 			if from and from == cross.to_level then
-				print("found player position " .. cross.x .. ", " .. cross.y)
 				self.player_start = { x = cross.x, y = cross.y }
 			end
 			table.insert(self.crosses, cross)
@@ -68,6 +67,7 @@ function PuzzleScene:initialize(level_id, from)
 			for _, cross in pairs(self.crosses) do
 				if cross.x == self.player.x and cross.y == self.player.y and cross:can_enter() then
 					PubSub:purge()
+					PuzzleScene._cross_sfx:play()
 					GAME_STATE:transition(PuzzleScene:new(cross.to_level, level_id))
 					return
 				end
@@ -102,6 +102,7 @@ function PuzzleScene:rewind()
 	self.current_turn = self.current_turn - 1
 	if self.current_turn < 0 then
 		self.current_turn = 0
+		return false
 	end
 	self:on_each_entity(function(entity)
 		if entity.rewind then
@@ -109,6 +110,7 @@ function PuzzleScene:rewind()
 		end
 	end)
 	GAME_STATE:set_steps(self.current_turn)
+	return true
 end
 
 function PuzzleScene:tick()
@@ -158,6 +160,7 @@ function PuzzleScene:update(dt)
 				print("yielding: " .. tostring(time))
 				coroutine.yield()
 			end
+			PuzzleScene._win_sfx:play()
 			GAME_STATE:save_progress(self.level_id, {
 				offerings = self.sacrifices,
 			})
