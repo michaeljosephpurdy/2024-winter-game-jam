@@ -57,26 +57,13 @@
 				"id": "Text",
 				"iid": "b4b5da33-b0a0-11ee-8b58-e9cb0f8f53b7",
 				"layer": "Entities",
-				"x": 256,
+				"x": 608,
 				"y": 288,
 				"width": 32,
 				"height": 32,
 				"color": 2281250,
 				"customFields": {
-					"text": "the path to enlightenment..."
-				}
-			},
-			{
-				"id": "Text",
-				"iid": "4df54460-b0a0-11ee-8b58-c9a8e950887f",
-				"layer": "Entities",
-				"x": 736,
-				"y": 416,
-				"width": 32,
-				"height": 32,
-				"color": 2281250,
-				"customFields": {
-					"text": "requires many sacrifices..."
+					"text": "this path will require many sacrifices"
 				}
 			}
 		]

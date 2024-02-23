@@ -18,7 +18,7 @@ function Cross:initialize(props)
 			self.state = STATE.ACTIVE
 		end
 		if self.state == STATE.INACTIVE then
-			local text = self.active .. "/" .. GAME_STATE.offerings
+			local text = GAME_STATE.offerings .. "/" .. self.active
 			self.inactive_text = Text:new({ text = text, x = self.x, y = self.y + 32 })
 		end
 		if GAME_STATE:is_completed(self.to_level) then
